@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBE9E3"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="5dp"
+    android:paddingBottom="5dp">
+
+    <!-- Header aligned to top -->
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_Notice"
+                android:layout_width="348dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="[공지사항] 격리 지침 및 공지사항 예 입니다."
+                android:textColor="#F40202"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/ibtn_Search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/search_btn" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header"
+        android:background="#FFFFFF">
+
+        <ListView
+            android:id="@+id/ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </ListView>
+    </RelativeLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/footer2"
+        android:layout_width="406dp"
+        android:layout_height="78dp"
+        android:layout_above="@id/footer1"
+        android:layout_alignParentBottom="false">
+
+        <ImageButton
+            android:id="@+id/ibtn_Write"
+            android:layout_width="153dp"
+            android:layout_height="35dp"
+            app:layout_gravity="center|top"
+            app:srcCompat="@drawable/write_btn" />
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/footer1"
+        android:layout_width="406dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ibtn_RanChat"
+            android:layout_width="255dp"
+            android:layout_height="67dp"
+            app:layout_gravity="bottom|center"
+            app:srcCompat="@drawable/ranchat_btn" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <!-- Footer aligned to bottom -->
+
+    <!-- Content below header and above footer -->
+
+
+</RelativeLayout>

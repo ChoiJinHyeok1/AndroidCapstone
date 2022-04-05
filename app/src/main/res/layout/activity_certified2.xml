@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBE9E3"
+    android:orientation="vertical"
+    tools:context=".CertifiedActivity2" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:orientation="vertical"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="357dp"
+        android:layout_height="197dp"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/a1" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="300dp"
+        android:layout_height="87dp"
+        android:layout_gravity="center"
+        android:background="#EBE9E3"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/a2" />
+</LinearLayout>
