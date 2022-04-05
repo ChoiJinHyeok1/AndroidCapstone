@@ -2,6 +2,7 @@ package com.example.capstone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -14,7 +15,7 @@ public class MainActivity3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main3);
 
 
         TextView tvNotice = (TextView)findViewById(R.id.tv_Notice);
@@ -23,13 +24,29 @@ public class MainActivity3 extends AppCompatActivity {
         ImageButton ibtnWrite = (ImageButton)findViewById(R.id.ibtn_Write);
 
 
-
+        //공지사항
         tvNotice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
+        ibtnRanChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(MainActivity3.this,IndividchatActivity6.class);
+                startActivity(mIntent);
+            }
+        });
+        ibtnWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(MainActivity3.this,WriterActivity5.class);
+                startActivity(mIntent);
+            }
+        });
+
 
     }
 }
