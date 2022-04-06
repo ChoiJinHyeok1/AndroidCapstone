@@ -11,16 +11,16 @@
         android:theme="@style/Theme.Capstone">
         <activity
             android:name=".ListitemActivity8"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".GroupchatActivity7"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".IndividchatActivity6"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".WriterActivity5"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ReaderActivity4"
             android:exported="true" />
