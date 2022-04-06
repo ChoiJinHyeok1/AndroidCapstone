@@ -1,6 +1,7 @@
 # AndroidCapstone
-    1. 깃허브 로그인 후 ChoiJinHyeok1/AndroidCapstone 쪽에 들어가서 초록색 Code 버튼 클릭 후 
-        Download ZIP 눌러서 파일 다운로드 및 HTTPS 쪽 URL 복사 
+    1. 깃허브 로그인 후 ChoiJinHyeok1/AndroidCapstone 쪽에 들어가서
+        초록색 Code 버튼 클릭 후 
+        Download ZIP 눌러 파일 다운로드 및 HTTPS 쪽 URL 복사 
     2. 다운로드 받은 파일로 AndroidStudio 열고 상단 메뉴? 에 Git 클릭
     3. 맨 밑쪽에 Clone... 클릭
     4. 복사한 URL, URL칸에 넣기
