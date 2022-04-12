@@ -13,15 +13,8 @@ public class Activity1Intro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro1);
-
+        ImageView imageView1 = (ImageView)findViewById(R.id.imageView1);
         ImageView imageView3 = (ImageView)findViewById(R.id.imageView3);
 
-        imageView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mIntent = new Intent(Activity1Intro.this, Activity2Certified.class);
-                startActivity(mIntent);
-            }
-        });
     }
 }
