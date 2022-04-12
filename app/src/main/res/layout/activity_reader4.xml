@@ -76,7 +76,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_margin="7dp"
-                    app:srcCompat="@drawable/img" />
+                    app:srcCompat="@drawable/like_btn" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"

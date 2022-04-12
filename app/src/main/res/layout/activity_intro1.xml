@@ -13,7 +13,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/title"
+        app:srcCompat="@drawable/title_txt"
         tools:layout_gravity="center" />
 
     <ImageView

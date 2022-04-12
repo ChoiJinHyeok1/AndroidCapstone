@@ -18,7 +18,7 @@
         android:layout_width="357dp"
         android:layout_height="197dp"
         android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/a1" />
+        app:srcCompat="@drawable/certification_txt" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -27,5 +27,5 @@
         android:layout_gravity="center"
         android:background="#EBE9E3"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/a2" />
+        app:srcCompat="@drawable/attach_btn" />
 </LinearLayout>
