@@ -14,7 +14,7 @@ public class Activity5Writer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writer5);
 
-        Button button3 = (Button)findViewById(R.id.button3);
+        Button button3 = (Button)findViewById(R.id.btn_WriteFin);
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override

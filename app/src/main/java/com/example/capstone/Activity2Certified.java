@@ -14,7 +14,7 @@ public class Activity2Certified extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certified2);
 
-        ImageButton imageButton = (ImageButton)findViewById(R.id.imageButton);
+        ImageButton imageButton = (ImageButton)findViewById(R.id.ibtn_Attach);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
