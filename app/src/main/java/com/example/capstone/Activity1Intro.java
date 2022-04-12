@@ -11,7 +11,7 @@ public class Activity1Intro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity1_intro);
-        ImageView imageView1 = (ImageView)findViewById(R.id.imgv_Title);
+        ImageView imageView1 = (ImageView)findViewById(R.id.imageView1);
         ImageView imageView3 = (ImageView)findViewById(R.id.imgv_TapToEnter);
 
     }
