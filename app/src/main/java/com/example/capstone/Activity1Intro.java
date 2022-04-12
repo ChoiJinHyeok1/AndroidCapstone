@@ -20,9 +20,10 @@ public class Activity1Intro extends AppCompatActivity {
         ImageView imageView2 = (ImageView)findViewById(R.id.imgv_MainDoor);
         ImageView imageView3 = (ImageView)findViewById(R.id.imgv_TapToEnter);
 
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.translate);
-        imageView1.startAnimation(animation);
-
+        final Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.translate);
+        imageView1.startAnimation(animation1);
+        final Animation animation2 = AnimationUtils.loadAnimation(this, R.anim.test);
+        imageView3.startAnimation(animation2);
 
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
