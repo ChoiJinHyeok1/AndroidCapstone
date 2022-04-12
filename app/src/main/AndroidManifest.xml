@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Capstone">
         <activity
             android:name=".FirebaseTestActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity8Listitem"
             android:exported="true" />
