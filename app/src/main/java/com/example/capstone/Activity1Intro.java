@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class IntroActivity1 extends AppCompatActivity {
+public class Activity1Intro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class IntroActivity1 extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(IntroActivity1.this,CertifiedActivity2.class);
+                Intent mIntent = new Intent(Activity1Intro.this, Activity2Certified.class);
                 startActivity(mIntent);
             }
         });

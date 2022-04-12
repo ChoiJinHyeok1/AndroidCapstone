@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".WriterActivity5">
+    tools:context=".Activity5Writer">
 
     <LinearLayout
         android:layout_width="match_parent"

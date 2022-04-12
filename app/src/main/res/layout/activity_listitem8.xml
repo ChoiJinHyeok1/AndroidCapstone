@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    tools:context=".ListitemActivity8">
+    tools:context=".Activity8Listitem">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-public class MainActivity3 extends AppCompatActivity {
+public class Activity3Main extends AppCompatActivity {
 
 
     @Override
@@ -35,14 +35,14 @@ public class MainActivity3 extends AppCompatActivity {
         ibtnRanChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(MainActivity3.this,IndividchatActivity6.class);
+                Intent mIntent = new Intent(Activity3Main.this, Activity6Individchat.class);
                 startActivity(mIntent);
             }
         });
         ibtnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(MainActivity3.this,WriterActivity5.class);
+                Intent mIntent = new Intent(Activity3Main.this, Activity5Writer.class);
                 startActivity(mIntent);
             }
         });

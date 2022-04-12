@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class GroupchatActivity7 extends AppCompatActivity {
+public class Activity4Reader extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_groupchat7);
+        setContentView(R.layout.activity_reader4);
     }
 }

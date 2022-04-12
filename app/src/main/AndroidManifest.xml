@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
-            android:name=".ListitemActivity8"
+            android:name=".Activity8Listitem"
             android:exported="true" />
         <activity
-            android:name=".GroupchatActivity7"
+            android:name=".Activity7Groupchat"
             android:exported="true" />
         <activity
-            android:name=".IndividchatActivity6"
+            android:name=".Activity6Individchat"
             android:exported="true" />
         <activity
-            android:name=".WriterActivity5"
+            android:name=".Activity5Writer"
             android:exported="true" />
         <activity
-            android:name=".ReaderActivity4"
+            android:name=".Activity4Reader"
             android:exported="true" />
         <activity
-            android:name=".CertifiedActivity2"
+            android:name=".Activity2Certified"
             android:exported="true" />
         <activity
-            android:name=".IntroActivity1"
+            android:name=".Activity1Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity3"
+            android:name=".Activity3Main"
             android:exported="true" />
     </application>
 

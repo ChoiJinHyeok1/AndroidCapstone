@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class WriterActivity5 extends AppCompatActivity {
+public class Activity5Writer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class WriterActivity5 extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(WriterActivity5.this,MainActivity3.class);
+                Intent mIntent = new Intent(Activity5Writer.this, Activity3Main.class);
                 startActivity(mIntent);
             }
         });

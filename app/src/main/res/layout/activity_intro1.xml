@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="50dp"
-    tools:context=".IntroActivity1">
+    tools:context=".Activity1Intro">
 
     <ImageView
         android:id="@+id/imageView1"

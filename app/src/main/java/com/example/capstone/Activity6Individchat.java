@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ListitemActivity8 extends AppCompatActivity {
+public class Activity6Individchat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listitem8);
+        setContentView(R.layout.activity_individchat6);
     }
 }
