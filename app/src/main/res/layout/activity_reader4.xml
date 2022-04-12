@@ -72,7 +72,7 @@
                     android:textSize="18dp" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imgv_Like"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_margin="7dp"
