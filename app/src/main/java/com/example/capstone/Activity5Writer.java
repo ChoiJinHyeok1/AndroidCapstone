@@ -12,7 +12,7 @@ public class Activity5Writer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_writer5);
+        setContentView(R.layout.activity5_writer);
 
         Button button3 = (Button)findViewById(R.id.btn_WriteFin);
 

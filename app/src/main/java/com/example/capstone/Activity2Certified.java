@@ -12,7 +12,7 @@ public class Activity2Certified extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_certified2);
+        setContentView(R.layout.activity2_certified);
 
         ImageButton imageButton = (ImageButton)findViewById(R.id.ibtn_Attach);
 

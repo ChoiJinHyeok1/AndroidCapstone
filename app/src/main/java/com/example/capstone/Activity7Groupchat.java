@@ -9,6 +9,6 @@ public class Activity7Groupchat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_groupchat7);
+        setContentView(R.layout.activity7_groupchat);
     }
 }
