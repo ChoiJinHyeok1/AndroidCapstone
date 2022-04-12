@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -22,6 +23,7 @@ public class Activity3Main extends AppCompatActivity {
         ImageButton ibtnSearch = (ImageButton)findViewById(R.id.ibtn_Search);
         ImageButton ibtnRanChat = (ImageButton)findViewById(R.id.ibtn_RanChat);
         ImageButton ibtnWrite = (ImageButton)findViewById(R.id.ibtn_Write);
+        ListView mainListView = (ListView)findViewById(R.id.main_ListView);
 
 
         //공지사항
@@ -43,6 +45,13 @@ public class Activity3Main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent mIntent = new Intent(Activity3Main.this, Activity5Writer.class);
+                startActivity(mIntent);
+            }
+        });
+        mainListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Activity3Main.this, Activity4Reader.class);
                 startActivity(mIntent);
             }
         });
