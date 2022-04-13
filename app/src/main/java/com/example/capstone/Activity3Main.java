@@ -1,6 +1,9 @@
 package com.example.capstone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +12,12 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class Activity3Main extends AppCompatActivity {
-
+    private ArrayList<item1> iList1;
+    private RecyclerView mainRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +29,12 @@ public class Activity3Main extends AppCompatActivity {
         ImageButton ibtnSearch = (ImageButton)findViewById(R.id.ibtn_Search);
         ImageButton ibtnRanChat = (ImageButton)findViewById(R.id.ibtn_RanChat);
         ImageButton ibtnWrite = (ImageButton)findViewById(R.id.ibtn_Write);
-        ListView mainListView = (ListView)findViewById(R.id.main_ListView);
+        mainRecyclerView = findViewById(R.id.mainRecyclerView);
+
+        iList1 = new ArrayList<>();
+
+        setItemInfo();
+        setAdapter();
 
 
         //공지사항
@@ -48,6 +59,28 @@ public class Activity3Main extends AppCompatActivity {
                 startActivity(mIntent);
             }
         });
+
+
+    }
+
+    //리사이클러뷰
+    private void setAdapter() {
+        mainRecyclerAdapter adapter = new mainRecyclerAdapter(iList1);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        mainRecyclerView.setLayoutManager(layoutManager);
+        mainRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mainRecyclerView.setAdapter(adapter);
+    }
+    private void setItemInfo() {
+        iList1.add(new item1("제목1", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목2", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목3", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목4", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목5", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목6", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목7", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목8", "5분 전", "게시글 내용 미리보기"));
+        iList1.add(new item1("제목9", "5분 전", "게시글 내용 미리보기"));
 
 
     }

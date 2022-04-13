@@ -54,13 +54,12 @@
         android:layout_below="@id/header"
         android:background="#FFFFFF">
 
-        <ListView
-            android:id="@+id/main_ListView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mainRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
 
-        </ListView>
     </RelativeLayout>
 
     <androidx.gridlayout.widget.GridLayout
