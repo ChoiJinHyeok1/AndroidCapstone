@@ -12,7 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
-            android:name=".FirebaseTestActivity"
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ResultActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyFirebaseMessagingService"
             android:exported="true" />
         <activity
             android:name=".Activity8Listitem"
