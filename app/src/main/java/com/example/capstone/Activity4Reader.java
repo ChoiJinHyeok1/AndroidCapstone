@@ -34,7 +34,7 @@ public class Activity4Reader extends AppCompatActivity {
         commentRecyclerView.setAdapter(adapter);
     }
     private void setItemInfo() {
-        iList2.add(new item2("익명1","댓글예시1 입니다."));
+        iList2.add(new item2("익명","확인용"));
         iList2.add(new item2("익명2","댓글예시2 입니다."));
         iList2.add(new item2("익명3","댓글예시3 입니다."));
         iList2.add(new item2("익명4","댓글예시4 입니다."));
