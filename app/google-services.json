@@ -15,7 +15,7 @@
       "oauth_client": [
         {
           "client_id": "663607482947-24asqp0kv5d2vfib9l0od8c8nu41pdgv.apps.googleusercontent.com",
-          "client_type": 1,
+          "client_type": 3,
           "android_info": {
             "package_name": "com.example.capstone",
             "certificate_hash": "04f7538294d9b01baa1bef892e8dc3b964c1c0ce"
