@@ -34,13 +34,25 @@
         <entry key="app/src/main/res/layout/activity1_intro.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity2_certified.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity3_main.xml" value="0.13728470111448834" />
-        <entry key="app/src/main/res/layout/activity4_reader.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/activity4_reader.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity5_writer.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity6_individchat.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity7_groupchat.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity8_listitem.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_after.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_firebase_test.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/activity_my_firebase_messaging_service.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity_result_dto.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/center_content.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/comment_items.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/item_result.xml" value="0.1916934690613678" />
+        <entry key="app/src/main/res/layout/left_content.xml" value="0.16530797101449277" />
         <entry key="app/src/main/res/layout/main_items.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/right_content.xml" value="0.16530797101449277" />
       </map>
     </option>
   </component>
@@ -49,5 +61,8 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
   </component>
 </project>
