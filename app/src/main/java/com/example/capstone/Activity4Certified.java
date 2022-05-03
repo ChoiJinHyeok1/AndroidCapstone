@@ -33,7 +33,7 @@ public class Activity4Certified extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity4_certified);
-//das
+
         findViewById(R.id.ibtn_Attach).setOnClickListener(onClickListener);
         photo=(ImageView)findViewById(R.id.ibtn_Attach);
         storage=FirebaseStorage.getInstance(); // 스토리지에 접근하기 위한 인스턴스 선언
@@ -110,7 +110,6 @@ public class Activity4Certified extends AppCompatActivity {
 //        ▶ uploadTask.addOnFailureListener : 스토리지에 정상적으로 이미지 파일을 업로드할 수 없을 때 아래 있는 코드 수행 (본문의 코드 같은 경우 Toast를 사용하여 토스 메시지를 띄우게 했다.)
 //
 //        ▶ addOnSuccessListener : 스토리지에 정상적으로 이미지 파일이 업로드되었을 때 아래 있는 코드 수행 (본문의 코드 같은 경우 Toast를 사용하여 토스 메시지를 띄우게 했다.
-
 
 
 
