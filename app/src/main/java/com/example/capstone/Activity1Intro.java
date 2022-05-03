@@ -28,7 +28,7 @@ public class Activity1Intro extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mintent = new Intent(Activity1Intro.this, Activity4Certified.class);
+                Intent mintent = new Intent(Activity1Intro.this, Activity2Login.class);
                 startActivity(mintent);
             }
         });

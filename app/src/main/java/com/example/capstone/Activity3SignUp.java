@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpActivity extends AppCompatActivity {
+public class Activity3SignUp extends AppCompatActivity {
     private EditText email_join;
     private EditText pwd_join;
     private EditText age_join,name_join;
@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity3_signup);
         email_join = (EditText) findViewById(R.id.sign_up_email);
         pwd_join = (EditText) findViewById(R.id.sign_up_pwd);
         age_join=(EditText)findViewById(R.id.sign_up_age);
@@ -48,17 +48,17 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 firebaseAuth.createUserWithEmailAndPassword(email, pwd)
-                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(Activity3SignUp.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                    Intent intent = new Intent(Activity3SignUp.this, Activity2Login.class);
                                     startActivity(intent);
                                     finish();
 
                                 } else {
-                                    Toast.makeText(SignUpActivity.this, "등록 에러", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Activity3SignUp.this, "등록 에러", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             }

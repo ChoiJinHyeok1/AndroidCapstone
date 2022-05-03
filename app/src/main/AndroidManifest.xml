@@ -15,15 +15,6 @@
         android:theme="@style/Theme.Capstone">
 
         <activity
-            android:name=".Activity1Intro"
-            android:exported="true" />
-        <activity
-            android:name=".Activity2Login"
-            android:exported="true" />
-        <activity
-            android:name=".Activity3Registration"
-            android:exported="true" />
-        <activity
             android:name=".Activity4Certified"
             android:exported="true" />
         <activity
@@ -39,13 +30,13 @@
             android:name=".Activity10Listitem"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity2Login"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activity3SignUp"
             android:exported="true" />
         <activity
-            android:name=".Activity9Groupchat"
+            android:name=".Activity1Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
