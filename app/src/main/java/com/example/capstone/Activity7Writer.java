@@ -5,21 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
-public class Activity2Certified extends AppCompatActivity {
+public class Activity7Writer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity2_certified);
+        setContentView(R.layout.activity5_writer);
 
-        ImageButton imageButton = (ImageButton)findViewById(R.id.ibtn_Attach);
+        Button button3 = (Button)findViewById(R.id.btn_WriteFin);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(Activity2Certified.this, Activity3Main.class);
+                Intent mIntent = new Intent(Activity7Writer.this, Activity5Main.class);
                 startActivity(mIntent);
             }
         });
