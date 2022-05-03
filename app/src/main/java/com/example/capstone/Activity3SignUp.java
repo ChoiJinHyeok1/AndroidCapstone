@@ -18,10 +18,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity3SignUp extends AppCompatActivity {
-    private EditText email_join;
-    private EditText pwd_join;
-    private EditText age_join,name_join;
-    private Button btn;
+
+    private EditText edtSignUpEmail;
+    private EditText edtSignUpPwd;
+    private EditText edtSignAge;
+    private EditText edtSignName;
+    private Button btnSign;
+
     FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -30,22 +33,23 @@ public class Activity3SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity3_signup);
-        email_join = (EditText) findViewById(R.id.sign_up_email);
-        pwd_join = (EditText) findViewById(R.id.sign_up_pwd);
-        age_join=(EditText)findViewById(R.id.sign_up_age);
-        name_join=(EditText)findViewById(R.id.sign_up_name);
-        btn = (Button) findViewById(R.id.sign_up_btn);
+
+        edtSignUpEmail = (EditText) findViewById(R.id.edt_SignUp_Email);
+        edtSignUpPwd = (EditText) findViewById(R.id.edt_SignUp_Pwd);
+        edtSignAge=(EditText)findViewById(R.id.edt_SignUp_Age);
+        edtSignName=(EditText)findViewById(R.id.edt_SignUp_Name);
+        btnSign = (Button) findViewById(R.id.btn_Sign);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        btn.setOnClickListener(new View.OnClickListener() {
+
+        btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = email_join.getText().toString().trim();
-                final String pwd = pwd_join.getText().toString().trim();
-                final String age = age_join.getText().toString().trim();
-                final String name = name_join.getText().toString().trim();
+                final String email = edtSignUpEmail.getText().toString().trim();
+                final String pwd = edtSignUpPwd.getText().toString().trim();
+                final String age = edtSignAge.getText().toString().trim();
+                final String name = edtSignName.getText().toString().trim();
                 //공백인 부분을 제거하고 보여주는 trim();
-
 
                 firebaseAuth.createUserWithEmailAndPassword(email, pwd)
                         .addOnCompleteListener(Activity3SignUp.this, new OnCompleteListener<AuthResult>() {
