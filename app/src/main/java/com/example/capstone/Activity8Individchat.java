@@ -57,7 +57,8 @@ public class Activity8Individchat extends AppCompatActivity {
                 MessageItem msgItem = snapshot.getValue(MessageItem.class);
                 msgArray.add(msgItem);
 
-                    iList3.add(new item3(msgArray.get(msgArray.size()-1).toString(), code.item3.RIGHT_CONTENT));
+                iList3.add(new item3(msgItem.getMsg(), code.item3.RIGHT_CONTENT));
+                chatRef.removeValue();
             }
 
             @Override
@@ -78,6 +79,13 @@ public class Activity8Individchat extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickSend(view);
             }
         });
     }
