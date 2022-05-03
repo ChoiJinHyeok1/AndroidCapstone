@@ -17,29 +17,33 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity2Login extends AppCompatActivity {
-    private Button join;
-    private Button login;
-    private EditText email_login;
-    private EditText pwd_login;
+
+    private Button btnSignUp;
+    private Button btnLogin;
+    private EditText edtEmail;
+    private EditText edtPwd;
+
     FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2_login);
-        join = (Button) findViewById(R.id.join);
-        login = (Button) findViewById(R.id.login);
-        email_login = (EditText) findViewById(R.id.email_login);
-        pwd_login = (EditText) findViewById(R.id.pwd_login);
+
+        btnSignUp = (Button) findViewById(R.id.btn_SignUp);
+        btnLogin = (Button) findViewById(R.id.btn_Login);
+        edtEmail = (EditText) findViewById(R.id.edt_Email);
+        edtPwd = (EditText) findViewById(R.id.edt_Pwd);
+
         firebaseAuth = firebaseAuth.getInstance();//firebaseAuth의 인스턴스를 가져옴
 
-        login.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = email_login.getText().toString().trim();
-                String pwd = pwd_login.getText().toString().trim();
+                String email = edtEmail.getText().toString().trim();
+                String pwd = edtPwd.getText().toString().trim();
                 //String형 변수 email.pwd(edittext에서 받오는 값)으로 로그인하는것
-                firebaseAuth.signInWithEmailAndPassword(email, pwd)
-                        .addOnCompleteListener(Activity2Login.this, new OnCompleteListener<AuthResult>() {
+                firebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(Activity2Login.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {//성공했을때
@@ -49,11 +53,11 @@ public class Activity2Login extends AppCompatActivity {
                                     Toast.makeText(Activity2Login.this, "로그인 오류", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        });
+                });
             }
         });
 
-        join.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity2Login.this, Activity3SignUp.class);
