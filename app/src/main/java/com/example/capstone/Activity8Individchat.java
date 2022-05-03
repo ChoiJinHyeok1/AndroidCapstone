@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class Activity6Individchat extends AppCompatActivity {
+public class Activity8Individchat extends AppCompatActivity {
     private ArrayList<item3> iList3;
 
     @Override

@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class Activity4Reader extends AppCompatActivity {
+public class Activity6Reader extends AppCompatActivity {
     private ArrayList<item2> iList2;
     private RecyclerView commentRecyclerView;
 

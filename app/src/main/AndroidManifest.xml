@@ -14,28 +14,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
+            android:name=".Activity3Registration"
+            android:exported="false" />
+        <activity
+            android:name=".Activity2Login"
+            android:exported="false" />
+        <activity
             android:name=".AfterActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".Activity8Listitem"
+            android:name=".Activity10Listitem"
             android:exported="true" />
         <activity
-            android:name=".Activity7Groupchat"
+            android:name=".Activity9Groupchat"
             android:exported="true" />
         <activity
-            android:name=".Activity6Individchat"
+            android:name=".Activity8Individchat"
             android:exported="true" />
         <activity
-            android:name=".Activity5Writer"
+            android:name=".Activity7Writer"
             android:exported="true" />
         <activity
-            android:name=".Activity4Reader"
+            android:name=".Activity6Reader"
             android:exported="true" />
         <activity
-            android:name=".Activity2Certified"
+            android:name=".Activity4Certified"
             android:exported="true" />
         <activity
             android:name=".Activity1Intro"
@@ -47,7 +53,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity3Main"
+            android:name=".Activity5Main"
             android:exported="true" />
     </application>
 
