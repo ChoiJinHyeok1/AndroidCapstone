@@ -21,6 +21,7 @@
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2675" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/drawable/memo.xml" value="0.1" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity1_intro.xml" value="0.1" />
+        <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity2_login.xml" value="0.1828125" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity3_main.xml" value="0.184375" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity_after.xml" value="0.125" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity_certified2.xml" value="0.3591485507246377" />
@@ -34,9 +35,16 @@
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity_main3.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity_reader4.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/user/StudioProjects/AndroidCapstone/app/src/main/res/layout/activity_writer5.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity1_intro.xml" value="0.22146739130434784" />
-        <entry key="app/src/main/res/layout/activity_activity2_login.xml" value="0.2028985507246377" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20394744873046877" />
+        <entry key="app/src/main/res/layout/activity1_intro.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity2_certified.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity3_main.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/activity4_reader.xml" value="0.13728470111448834" />
+        <entry key="app/src/main/res/layout/activity8_listitem.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_firebase_test.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_my_firebase_messaging_service.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/comment_items.xml" value="0.16530797101449277" />
+        <entry key="app/src/main/res/layout/main_items.xml" value="0.16530797101449277" />
       </map>
     </option>
   </component>
