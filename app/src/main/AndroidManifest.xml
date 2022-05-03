@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
-            android:name=".AfterActivity"
-            android:exported="true" />
+            android:name=".SignUpActivity"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".Activity8Listitem"
