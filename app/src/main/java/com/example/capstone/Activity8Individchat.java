@@ -14,7 +14,7 @@ public class Activity8Individchat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity6_individchat);
+        setContentView(R.layout.activity8_individchat);
 
         this.initializeData();
 
