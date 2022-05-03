@@ -9,14 +9,14 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class Activity4Reader extends AppCompatActivity {
+public class Activity6Reader extends AppCompatActivity {
     private ArrayList<item2> iList2;
     private RecyclerView commentRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity4_reader);
+        setContentView(R.layout.activity6_reader);
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
         iList2 = new ArrayList<>();

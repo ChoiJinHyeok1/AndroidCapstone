@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Activity2Certified extends AppCompatActivity {
+public class Activity4Certified extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity2_certified);
+        setContentView(R.layout.activity4_certified);
 
         ImageButton imageButton = (ImageButton)findViewById(R.id.ibtn_Attach);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(Activity2Certified.this, Activity3Main.class);
+                Intent mIntent = new Intent(Activity4Certified.this, Activity5Main.class);
                 startActivity(mIntent);
             }
         });

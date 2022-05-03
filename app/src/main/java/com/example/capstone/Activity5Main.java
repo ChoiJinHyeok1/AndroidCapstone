@@ -14,14 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public class Activity3Main extends AppCompatActivity {
+public class Activity5Main extends AppCompatActivity {
     private ArrayList<item1> iList1;
     private RecyclerView mainRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity3_main);
+        setContentView(R.layout.activity5_main);
 
 
         TextView tvNotice = (TextView)findViewById(R.id.tv_Notice);
@@ -47,14 +47,14 @@ public class Activity3Main extends AppCompatActivity {
         ibtnRanChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(Activity3Main.this, Activity6Individchat.class);
+                Intent mIntent = new Intent(Activity5Main.this, Activity8Individchat.class);
                 startActivity(mIntent);
             }
         });
         ibtnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(Activity3Main.this, Activity5Writer.class);
+                Intent mIntent = new Intent(Activity5Main.this, Activity7Writer.class);
                 startActivity(mIntent);
             }
         });

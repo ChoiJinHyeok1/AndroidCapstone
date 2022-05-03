@@ -50,7 +50,7 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
 
         holder.itemView.setOnClickListener(v -> {
             Context context = v.getContext();
-            Intent intent = new Intent(context, Activity4Reader.class);
+            Intent intent = new Intent(context, Activity6Reader.class);
             context.startActivity(intent);
         });
     }

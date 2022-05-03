@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Activity7Groupchat extends AppCompatActivity {
+public class Activity9Groupchat extends AppCompatActivity {
     Button btnOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity7_groupchat);
+        setContentView(R.layout.activity9_groupchat);
 
         btnOut = findViewById(R.id.btn_Out);
 
