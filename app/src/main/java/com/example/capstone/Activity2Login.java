@@ -50,7 +50,6 @@ public class Activity2Login extends AppCompatActivity {
                                 }
                             }
                         });
-
             }
         });
 
