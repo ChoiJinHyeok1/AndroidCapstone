@@ -9,6 +9,6 @@ public class Activity10Listitem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity8_listitem);
+        setContentView(R.layout.activity10_listitem);
     }
 }

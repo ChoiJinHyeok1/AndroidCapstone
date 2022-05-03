@@ -21,7 +21,7 @@ public class Activity5Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity3_main);
+        setContentView(R.layout.activity5_main);
 
 
         TextView tvNotice = (TextView)findViewById(R.id.tv_Notice);

@@ -16,7 +16,7 @@ public class Activity6Reader extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity4_reader);
+        setContentView(R.layout.activity6_reader);
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
         iList2 = new ArrayList<>();
