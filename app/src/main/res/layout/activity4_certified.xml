@@ -28,4 +28,10 @@
         android:background="#EBE9E3"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/attach_btn" />
+
+    <Button
+        android:id="@+id/ibtn_intent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
