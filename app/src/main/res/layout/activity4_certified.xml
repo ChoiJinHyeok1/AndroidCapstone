@@ -20,7 +20,7 @@
         android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/certification_txt" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ibtn_Attach"
         android:layout_width="300dp"
         android:layout_height="87dp"
