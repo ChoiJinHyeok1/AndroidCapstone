@@ -1,4 +1,4 @@
-package com.example.capstone;
+package com.example.capstone; // completed
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +45,8 @@ public class Activity3SignUp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Intent mIntent = new Intent(Activity3SignUp.this, Activity2Login.class);
+                            Intent usrIntent = new Intent(Activity3SignUp.this, Activity4Certified.class);
+                            usrIntent.putExtra("usrId", email);
                             startActivity(mIntent);
                             finish();
                         } else { Toast.makeText(Activity3SignUp.this, "등록할 수 없습니다.", Toast.LENGTH_SHORT).show();
