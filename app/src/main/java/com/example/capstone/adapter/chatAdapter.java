@@ -1,4 +1,4 @@
-package com.example.capstone;
+package com.example.capstone.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.capstone.R;
+import com.example.capstone.code;
+import com.example.capstone.item3;
 
 import java.util.ArrayList;
 

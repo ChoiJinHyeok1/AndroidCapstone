@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.capstone.adapter.commentRecyclerAdapter;
+
 import java.util.ArrayList;
 
 public class Activity6Reader extends AppCompatActivity {
