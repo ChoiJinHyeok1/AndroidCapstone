@@ -1,4 +1,4 @@
-package com.example.capstone;
+package com.example.capstone; // completed
 
 import androidx.appcompat.app.AppCompatActivity;
 

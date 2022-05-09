@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
-
+        <activity
+            android:name=".Waitingforapproval"
+            android:exported="false" />
         <!-- 액티비티 생성시 있는지 확인 -->
         <activity
             android:name=".Activity2Login"

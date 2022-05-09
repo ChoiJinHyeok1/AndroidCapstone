@@ -8,7 +8,7 @@
     tools:context=".Activity2Login">
 
     <EditText
-        android:id="@+id/edt_Email"
+        android:id="@+id/edtMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -16,7 +16,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edt_Pwd"
+        android:id="@+id/edtPwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,13 +24,13 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/btn_SignUp"
+        android:id="@+id/btnJoin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입" />
 
     <Button
-        android:id="@+id/btn_Login"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="로그인" />

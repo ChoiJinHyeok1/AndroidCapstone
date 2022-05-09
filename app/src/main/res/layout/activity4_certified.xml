@@ -14,7 +14,7 @@
         android:orientation="vertical"></LinearLayout>
 
     <ImageView
-        android:id="@+id/imgv_Like"
+        android:id="@+id/imgv_Imgv"
         android:layout_width="357dp"
         android:layout_height="197dp"
         android:layout_gravity="center_horizontal"
@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/attach_btn" />
 
     <Button
-        android:id="@+id/ibtn_intent"
+        android:id="@+id/ibtn_Intent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />
