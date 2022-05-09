@@ -18,30 +18,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity3SignUp extends AppCompatActivity {
-
-    private EditText edtSignUpEmail;
-    private EditText edtSignUpPwd;
-    private EditText edtSignAge;
-    private EditText edtSignName;
+    private EditText edtSignUpEmail, edtSignUpPwd, edtSignAge, edtSignName;
     private Button btnSign;
-
-    FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
-
+    FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity3_signup);
-
-        edtSignUpEmail = (EditText) findViewById(R.id.edt_SignUp_Email);
-        edtSignUpPwd = (EditText) findViewById(R.id.edt_SignUp_Pwd);
-        edtSignAge=(EditText)findViewById(R.id.edt_SignUp_Age);
-        edtSignName=(EditText)findViewById(R.id.edt_SignUp_Name);
+        edtSignUpEmail = (EditText) findViewById(R.id.edtSinMail);
+        edtSignUpPwd = (EditText) findViewById(R.id.edtSinPwd);
+        edtSignAge = (EditText) findViewById(R.id.edtSinAge);
+        edtSignName = (EditText) findViewById(R.id.edtSinName);
         btnSign = (Button) findViewById(R.id.btn_Sign);
-
         firebaseAuth = FirebaseAuth.getInstance();
-
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,26 +40,19 @@ public class Activity3SignUp extends AppCompatActivity {
                 final String pwd = edtSignUpPwd.getText().toString().trim();
                 final String age = edtSignAge.getText().toString().trim();
                 final String name = edtSignName.getText().toString().trim();
-                //공백인 부분을 제거하고 보여주는 trim();
-
-                firebaseAuth.createUserWithEmailAndPassword(email, pwd)
-                        .addOnCompleteListener(Activity3SignUp.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                if (task.isSuccessful()) {
-                                    Intent intent = new Intent(Activity3SignUp.this, Activity2Login.class);
-                                    startActivity(intent);
-                                    finish();
-
-                                } else {
-                                    Toast.makeText(Activity3SignUp.this, "등록 에러", Toast.LENGTH_SHORT).show();
-                                    return;
-                                }
-                            }
-                        });
+                firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(Activity3SignUp.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Intent mIntent = new Intent(Activity3SignUp.this, Activity2Login.class);
+                            startActivity(mIntent);
+                            finish();
+                        } else { Toast.makeText(Activity3SignUp.this, "등록할 수 없습니다.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                });
             }
         });
-
     }
 }

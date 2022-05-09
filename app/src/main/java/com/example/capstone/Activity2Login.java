@@ -32,8 +32,8 @@ public class Activity2Login extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity2Login.this, Activity3SignUp.class);
-                startActivity(intent);
+                Intent mIntent = new Intent(Activity2Login.this, Activity3SignUp.class);
+                startActivity(mIntent);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +45,8 @@ public class Activity2Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent mIntent = new Intent(Activity2Login.this, Activity4Certified.class);
-                            startActivity(mIntent);
+                            //Intent mIntent = new Intent(Activity2Login.this, Activity4Certified.class);
+                            //startActivity(mIntent);
                         } else {Toast.makeText(Activity2Login.this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();}
                     }
                 });

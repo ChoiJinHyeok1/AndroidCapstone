@@ -30,7 +30,7 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layMail"
+        android:id="@+id/laySinMail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="380sp"
         android:layout_height="60sp"
