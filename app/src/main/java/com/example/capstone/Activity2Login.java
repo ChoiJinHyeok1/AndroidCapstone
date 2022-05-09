@@ -24,8 +24,8 @@ public class Activity2Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2_login);
-        edtMail = findViewById(R.id.edtMail);
-        edtPwd = findViewById(R.id.edtPwd);
+        edtMail = findViewById(R.id.edtLoginMail);
+        edtPwd = findViewById(R.id.edtLoginPwd);
         btnJoin = findViewById(R.id.btnJoin);
         btnLogin = findViewById(R.id.btnLogin);
         firebaseAuth = firebaseAuth.getInstance();
@@ -47,7 +47,7 @@ public class Activity2Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Intent mIntent = new Intent(Activity2Login.this, Activity4Certified.class);
                             startActivity(mIntent);
-                        } else {Toast.makeText(Activity2Login.this, "로그인을 할 수 없습니다.", Toast.LENGTH_SHORT).show();}
+                        } else {Toast.makeText(Activity2Login.this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();}
                     }
                 });
             }
