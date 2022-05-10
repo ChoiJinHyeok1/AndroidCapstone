@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
+        android:background="#EBE9E3"
         android:gravity="center">
 
         <LinearLayout
@@ -52,7 +52,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/header"
-        android:background="#FFFFFF">
+        android:background="#EBE9E3">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mainRecyclerView"

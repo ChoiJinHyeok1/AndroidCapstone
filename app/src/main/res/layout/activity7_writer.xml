@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EBE9E3"
     tools:context=".Activity7Writer">
 
 
@@ -27,8 +28,8 @@
                 android:ems="10"
                 android:hint="제목을 입력해주세요."
                 android:inputType="textPersonName"
-                android:singleLine="true"
                 android:maxLines="1"
+                android:singleLine="true"
                 android:textSize="22sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -84,6 +85,6 @@
         layout="@layout/view_loader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

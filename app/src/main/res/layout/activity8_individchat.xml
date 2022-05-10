@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EBE9E3"
     android:orientation="vertical"
     tools:context=".Activity8Individchat">
 
@@ -16,11 +17,11 @@
             android:id="@+id/btn_Out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/white"
-            android:textSize="14dp"
             android:background="#00ff0000"
-            android:text="나가기" />
+            android:backgroundTint="@color/white"
+            android:text="나가기"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,8 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="18dp"
-                android:text="다른 상대"/>
+                android:text="다른 상대"
+                android:textSize="18dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -77,9 +78,9 @@
                 android:id="@+id/btn_Send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
                 android:layout_weight="1"
-                android:text="전송" />
+                android:text="전송"
+                android:textSize="18dp" />
 
 
         </LinearLayout>
