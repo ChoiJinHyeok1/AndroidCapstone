@@ -40,11 +40,11 @@ public class PostInfo {
         this.publisher = publisher;
     }
 
-    //public Timestamp getCreatedAt() {
-    //    return createdAt;
-    //}
-
-   // public void setCreatedAt(Timestamp createdAt) {
-  //      this.createdAt = createdAt;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
-//}
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+}

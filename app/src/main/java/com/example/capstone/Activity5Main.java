@@ -48,7 +48,7 @@ public class Activity5Main extends AppCompatActivity {
                                                 document.getData().get("title").toString(),
                                                 document.getData().get("contents").toString(),
                                                 "익명",
-                                                document.getTimestamp("createAt")
+                                                document.getTimestamp("createdAt")
                                         ));
                                     }
                                     RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
