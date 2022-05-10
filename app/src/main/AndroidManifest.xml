@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.capstone">
-
     <!-- 인터넷 사용 권한 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 파이어베이스 Storage 읽기,쓰기 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 파이어베이스 Storage 읽기,쓰기 권한 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -16,9 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
-            android:name=".Waitingforapproval"
+            android:name=".Activity11Notice"
             android:exported="false" />
-        <!-- 액티비티 생성시 있는지 확인 -->
+        <activity
+            android:name=".Waitingforapproval"
+            android:exported="false" /> <!-- 액티비티 생성시 있는지 확인 -->
         <activity
             android:name=".Activity2Login"
             android:exported="true" />
@@ -45,9 +45,7 @@
             android:exported="true" />
         <activity
             android:name=".Activity10Listitem"
-            android:exported="true" />
-
-        <!-- 처음 시작할 액티비티 -->
+            android:exported="true" /> <!-- 처음 시작할 액티비티 -->
         <activity
             android:name=".Activity1Intro"
             android:exported="true">

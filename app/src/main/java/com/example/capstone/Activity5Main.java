@@ -68,13 +68,15 @@ public class Activity5Main extends AppCompatActivity {
             ImageButton ibtnSearch = (ImageButton) findViewById(R.id.ibtn_Search);
             ImageButton ibtnRanChat = (ImageButton) findViewById(R.id.ibtn_RanChat);
             ImageButton ibtnWrite = (ImageButton) findViewById(R.id.ibtn_Write);
+            TextView tvTitle = (TextView) findViewById(R.id.tv_Title);
 
 
             //공지사항
             tvNotice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent mIntent = new Intent(Activity5Main.this, Activity11Notice.class);
+                    startActivity(mIntent);
                 }
             });
 

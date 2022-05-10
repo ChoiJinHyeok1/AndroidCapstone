@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBE9E3"
+    android:paddingLeft="5dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="vertical"
+    tools:context=".Activity11Notice">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/ibori"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ibori"
+                android:orientation="vertical"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp">
+
+                <ImageButton
+                    android:id="@+id/ibtn_Back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="?attr/homeAsUpIndicator" />
+
+                <TextView
+                    android:id="@+id/tv_Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="18dp"
+                    android:paddingBottom="5dp"
+                    android:text="[공지사항] 거리두기 지침"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_Content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="623dp"
+                    android:layout_margin="7dp"
+                    android:paddingTop="7dp"
+                    android:text="◈ 4월 18일(월)부터 사회적 거리두기 모든 조치 해제, 마스크 착용에 대해서는 2주 후 조정 여부 다시 논의 - 운영시간, 사적모임, 행사·집회, 기타(종교 활동, 실내 취식금지 등) 조치를 모두 해제 - 실내 취식금지는 보다 안전한 취식 재개 방안 마련 등을 위해 1주 간의 준비기간을 거쳐 4.25.(월)부터 해제 - 실내·외 마스크 착용 의무는 현행 기준 유지  ◈ ’오미크론을 넘어, 안전하고 새로운 일상으로‘ 포스트 오미크론 대응 계획 - (전략) 지속가능하고 효율적인 대응체계로의 전환, 고위험군·감염취약계층 집중관리로 국민 건강피해 최소화, 신종 변이 및 재유행 등에 대한 선제적 대비 - 코로나 감염병 등급을 4월 25일 1급에서→’격리(7일)의무가 있는 2급‘으로 조정, 약 4주간의 이행기 이후 ’격리권고‘로 전환(격리 의무 해제)"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -31,8 +31,8 @@
                 android:layout_width="348dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="[공지사항] 격리 지침 및 공지사항 예 입니다."
+                android:gravity="center|left"
+                android:text="[공지사항] 거리두기 지침"
                 android:textColor="#F40202"
                 android:textSize="18sp" />
 
