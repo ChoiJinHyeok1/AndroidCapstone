@@ -42,12 +42,11 @@
         <entry key="app/src/main/res/layout/activity1_intro.xml" value="0.22146739130434784" />
         <entry key="app/src/main/res/layout/activity2_login.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/activity3_signup.xml" value="0.3375" />
-        <entry key="app/src/main/res/layout/activity4_certified.xml" value="0.3375" />
-        <entry key="app/src/main/res/layout/activity5_main.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/activity6_reader.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity7_writer.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity4_certified.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_activity2_login.xml" value="0.2028985507246377" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20394744873046877" />
+        <entry key="app/src/main/res/layout/activity_waitingforapproval.xml" value="0.24048913043478262" />
+        <entry key="app/src/main/res/layout/waitingforapproval.xml" value="0.24048913043478262" />
       </map>
     </option>
   </component>

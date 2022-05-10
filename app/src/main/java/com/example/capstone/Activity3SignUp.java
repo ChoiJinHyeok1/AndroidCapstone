@@ -44,9 +44,8 @@ public class Activity3SignUp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent mIntent = new Intent(Activity3SignUp.this, Activity2Login.class);
-                            Intent usrIntent = new Intent(Activity3SignUp.this, Activity4Certified.class);
-                            usrIntent.putExtra("usrId", email);
+                            Intent mIntent = new Intent(Activity3SignUp.this, Activity4Certified.class);
+                            mIntent.putExtra("usrId", email);
                             startActivity(mIntent);
                             finish();
                         } else { Toast.makeText(Activity3SignUp.this, "등록할 수 없습니다.", Toast.LENGTH_SHORT).show();
