@@ -1,20 +1,20 @@
 package com.example.capstone;
 
-//import com.google.firebase.Timestamp;
+import com.google.firebase.Timestamp;
 
 //게시글
 public class PostInfo {
     private String title;
     private String contents;
     private String publisher;
-    //private Timestamp createdAt;
+    private Timestamp createdAt;
 
-    //public PostInfo(String title, String contents, String publisher, Timestamp createdAt) {
-    //    this.title = title;
-    //    this.contents = contents;
-    //    this.publisher = publisher;
-    //    this.createdAt = createdAt;
-    //}
+    public PostInfo(String title, String contents, String publisher, Timestamp createdAt) {
+        this.title = title;
+        this.contents = contents;
+        this.publisher = publisher;
+        this.createdAt = createdAt;
+    }
 
     public String getTitle() {
         return title;

@@ -33,7 +33,6 @@ public class Activity5Main extends AppCompatActivity {
         setContentView(R.layout.activity5_main);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
             //게시글 내용 값 받아오는 코드
             db.collection("posts")
                     //시간순 출력
