@@ -27,8 +27,6 @@ public class Activity4Certified extends AppCompatActivity {
     private FirebaseStorage storage;
     ImageView btnAttach;
     Button btnIntent;
-    Intent usrIntent = getIntent();
-    String usrId = usrIntent.getStringExtra("usrId");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +65,7 @@ public class Activity4Certified extends AppCompatActivity {
         if (requestCode == GALLERY_CODE) {
             Uri file = data.getData();
             StorageReference storageRef = storage.getReference();
-            StorageReference riversRef = storageRef.child("photo/" + usrId + ".png");//수정 요망@@@@@@@@@@@@@@@@@@@@@@@
+            StorageReference riversRef = storageRef.child("photo/1.png");//수정 요망@@@@@@@@@@@@@@@@@@@@@@@
             UploadTask uploadTask = riversRef.putFile(file);
             try {
                 InputStream in = getContentResolver().openInputStream(data.getData());
