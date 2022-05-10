@@ -27,8 +27,7 @@ public class Activity4Certified extends AppCompatActivity {
     private FirebaseStorage storage;
     ImageView btnAttach;
     Button btnIntent;
-    Intent usrIntent = getIntent();
-    String usrId = usrIntent.getStringExtra("usrId");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +36,9 @@ public class Activity4Certified extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         btnAttach = (ImageView)findViewById(R.id.ibtn_Attach);
         btnIntent = findViewById(R.id.ibtn_Intent);
+
+
+
         btnIntent.setOnClickListener(new View.OnClickListener() { // btnIntent 터치 시 다음 화면
             @Override
             public void onClick(View view) {
@@ -64,6 +66,10 @@ public class Activity4Certified extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        Intent usrIntent = getIntent();
+        String usrId = usrIntent.getStringExtra("usrId");
+
         if (requestCode == GALLERY_CODE) {
             Uri file = data.getData();
             StorageReference storageRef = storage.getReference();
