@@ -5,7 +5,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.capstone.adapter.commentRecyclerAdapter;
 
@@ -21,7 +27,26 @@ public class Activity6Reader extends AppCompatActivity {
         setContentView(R.layout.activity6_reader);
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
+        ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
         iList2 = new ArrayList<>();
+
+        ibtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(Activity6Reader.this, Activity5Main.class);
+                startActivity(mIntent);
+            }
+        });
+
+        Intent intent = getIntent();
+        TextView tv_Title = (TextView) findViewById(R.id.tv_Title);
+        String stitle = intent.getExtras().getString("title");
+        tv_Title.setText(stitle);
+
+        TextView tv_Content = (TextView) findViewById(R.id.tv_Content);
+        String scontents = intent.getExtras().getString("contents");
+        tv_Content.setText(scontents);
+
 
         setItemInfo();
         setAdapter();

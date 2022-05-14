@@ -1,6 +1,7 @@
 package com.example.capstone.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.capstone.Activity6Reader;
 import com.example.capstone.PostInfo;
 import com.example.capstone.R;
 
@@ -29,8 +31,13 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
     }
 
     public mainRecyclerAdapter(Activity activity, ArrayList<PostInfo> myDataset) {
-        mDataset = myDataset;
+        this.mDataset = myDataset;
         this.activity = activity;
+    }
+
+    @Override
+    public int getItemViewType(int position){
+        return position;
     }
 
     @NonNull
@@ -41,7 +48,11 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                int mPosition = myViewHolder.getAdapterPosition();
+                Intent intent = new Intent(activity, Activity6Reader.class);
+                intent.putExtra("title", mDataset.get(mPosition).getTitle());
+                intent.putExtra("contents", mDataset.get(mPosition).getContents());
+                activity.startActivity(intent);
             }
         });
         return myViewHolder;

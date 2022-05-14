@@ -31,6 +31,13 @@
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp">
 
+                <ImageButton
+                    android:id="@+id/ibtn_Back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="?attr/homeAsUpIndicator" />
+
+
                 <TextView
                     android:id="@+id/tv_Title"
                     android:layout_width="match_parent"
