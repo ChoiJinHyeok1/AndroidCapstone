@@ -1,5 +1,6 @@
 package com.example.capstone;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.capstone.adapter.mainRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -25,44 +30,67 @@ import java.util.ArrayList;
 
 public class Activity5Main extends AppCompatActivity {
     private static final String TAG = "Activity5Main";
-    private FirebaseFirestore firebaseFirestore;
+    RecyclerView recyclerView;
+    ArrayList<PostInfo> postList;
+    mainRecyclerAdapter mainRecyclerAdapter;
+    FirebaseFirestore db;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity5_main);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            //게시글 내용 값 받아오는 코드
-            db.collection("posts")
-                    //시간순 출력
-                    .orderBy("createdAt", Query.Direction.DESCENDING).get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    ArrayList<PostInfo> postList = new ArrayList<>();
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                        Log.d(TAG, document.getId() + "=>" + document.getData());
-                                        postList.add(new PostInfo(
-                                                document.getData().get("title").toString(),
-                                                document.getData().get("contents").toString(),
-                                                "익명",
-                                                document.getTimestamp("createdAt")
-                                        ));
-                                    }
-                                    RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
-                                    recyclerView.setHasFixedSize(true);
-                                    recyclerView.setLayoutManager(new LinearLayoutManager(Activity5Main.this));
-                                    RecyclerView.Adapter mAdapter = new mainRecyclerAdapter(Activity5Main.this, postList);
-                                    recyclerView.setAdapter(mAdapter);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("로딩중...");
+        progressDialog.show();
 
-                                } else {
-                                    Log.d(TAG, "Error", task.getException());
-                                }
+        recyclerView = findViewById(R.id.mainRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(Activity5Main.this));
 
-                        }
-                    });
+        db = FirebaseFirestore.getInstance();
+        postList = new ArrayList<>();
+        mainRecyclerAdapter = new mainRecyclerAdapter(Activity5Main.this, postList);
+
+        recyclerView.setAdapter(mainRecyclerAdapter);
+
+        EventChangeListener();
+
+
+        //복잡해서 새로만들었는데 나중에 필요할까봐 냅둬요!
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+//            db.collection("posts")
+//                    //시간순 출력
+//                    .orderBy("createdAt", Query.Direction.DESCENDING).get()
+//                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                if (task.isSuccessful()) {
+//                                    ArrayList<PostInfo> postList = new ArrayList<>();
+//                                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        Log.d(TAG, document.getId() + "=>" + document.getData());
+//                                        postList.add(new PostInfo(
+//                                                document.getData().get("title").toString(),
+//                                                document.getData().get("contents").toString(),
+//                                                "익명",
+//                                                document.getTimestamp("createdAt")
+//                                        ));
+//                                    }
+//                                    RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
+//                                    recyclerView.setHasFixedSize(true);
+//                                    recyclerView.setLayoutManager(new LinearLayoutManager(Activity5Main.this));
+//                                    RecyclerView.Adapter mAdapter = new mainRecyclerAdapter(Activity5Main.this, postList);
+//                                    recyclerView.setAdapter(mAdapter);
+//
+//                                } else {
+//                                    Log.d(TAG, "Error", task.getException());
+//                                }
+//
+//                        }
+//                    });
 
             TextView tvNotice = (TextView) findViewById(R.id.tv_Notice);
             ImageButton ibtnSearch = (ImageButton) findViewById(R.id.ibtn_Search);
@@ -97,7 +125,30 @@ public class Activity5Main extends AppCompatActivity {
 
         }
 
-        protected void onResume(){
+    private void EventChangeListener() {
+        db.collection("posts").orderBy("createdAt", Query.Direction.DESCENDING)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null){
+                            if (progressDialog.isShowing())
+                                progressDialog.show();
+                            Log.d("Firestore error", error.getMessage());
+                            return;
+                        }
+                        for (DocumentChange dc : value.getDocumentChanges()){
+                            if (dc.getType() == DocumentChange.Type.ADDED){
+                                postList.add(dc.getDocument().toObject(PostInfo.class));
+                            }
+                            mainRecyclerAdapter.notifyDataSetChanged();
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
+                        }
+                    }
+                });
+    }
+
+    protected void onResume(){
             super.onResume();
         }
 };

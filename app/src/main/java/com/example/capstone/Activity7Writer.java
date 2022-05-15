@@ -62,7 +62,7 @@ public class Activity7Writer extends AppCompatActivity {
             user = FirebaseAuth.getInstance().getCurrentUser();
 
             Timestamp createdAt = Timestamp.now();
-            PostInfo postInfo = new PostInfo(title, contents, user.getUid(), createdAt);
+            PostInfo postInfo = new PostInfo(title, contents, user.getUid(), createdAt, 0);
             storeUpload(postInfo);
 
         } else {

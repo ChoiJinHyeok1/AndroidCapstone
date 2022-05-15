@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.capstone.Activity6Reader;
 import com.example.capstone.PostInfo;
 import com.example.capstone.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
 
@@ -45,6 +47,7 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
     public mainRecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.main_items, parent, false);
         final MyViewHolder myViewHolder = new MyViewHolder(cardView);
+
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,9 +55,11 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
                 Intent intent = new Intent(activity, Activity6Reader.class);
                 intent.putExtra("title", mDataset.get(mPosition).getTitle());
                 intent.putExtra("contents", mDataset.get(mPosition).getContents());
+                intent.putExtra("likecnt", String.valueOf(mDataset.get(mPosition).getLikecnt() ));
                 activity.startActivity(intent);
             }
         });
+
         return myViewHolder;
 
     }
@@ -67,6 +72,9 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
 
         TextView m_content = cardView.findViewById(R.id.m_content);
         m_content.setText(mDataset.get(position).getContents());
+
+        TextView m_likecnt = cardView.findViewById(R.id.m_likecnt);
+        m_likecnt.setText(String.valueOf(mDataset.get(position).getLikecnt()));
 
 //        TextView m_createAt = cardView.findViewById(R.id.m_createAt);
 //        m_createAt.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));

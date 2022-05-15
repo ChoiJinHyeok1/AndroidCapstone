@@ -28,6 +28,7 @@ public class Activity6Reader extends AppCompatActivity {
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
         ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
+        ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
         iList2 = new ArrayList<>();
 
         ibtnBack.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,10 @@ public class Activity6Reader extends AppCompatActivity {
         String scontents = intent.getExtras().getString("contents");
         tv_Content.setText(scontents);
 
+        TextView tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
+        Long llikecnt = intent.getLongExtra("likecnt", 0);
+        String slikecnt = llikecnt.toString();
+        tv_likecnt.setText(slikecnt);
 
         setItemInfo();
         setAdapter();

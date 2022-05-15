@@ -8,12 +8,31 @@ public class PostInfo {
     private String contents;
     private String publisher;
     private Timestamp createdAt;
+    private long likecnt;
+
+    public PostInfo(){}
 
     public PostInfo(String title, String contents, String publisher, Timestamp createdAt) {
         this.title = title;
         this.contents = contents;
         this.publisher = publisher;
         this.createdAt = createdAt;
+    }
+    
+    public PostInfo(String title, String contents, String publisher, Timestamp createdAt, long likecnt) {
+        this.title = title;
+        this.contents = contents;
+        this.publisher = publisher;
+        this.createdAt = createdAt;
+        this.likecnt = likecnt;
+    }
+
+    public long getLikecnt() {
+        return likecnt;
+    }
+
+    public void setLikecnt(long likecnt) {
+        this.likecnt = likecnt;
     }
 
     public String getTitle() {
