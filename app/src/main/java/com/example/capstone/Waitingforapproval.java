@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class Waitingforapproval extends AppCompatActivity {
-    Button btnBtn;
+    Button btnEnter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.waitingforapproval);
-        btnBtn = findViewById(R.id.btnBtn);
-        btnBtn.setOnClickListener(new View.OnClickListener() {
+        btnEnter = findViewById(R.id.btnEnter);
+        btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(Waitingforapproval.this, Activity5Main.class);

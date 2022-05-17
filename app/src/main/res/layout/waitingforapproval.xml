@@ -5,24 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EBE9E3"
     tools:context=".Waitingforapproval">
 
-    <TextView
-        android:id="@+id/tvWelcome"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="환영합니다!"
-        android:textSize="80dp" />
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="130dp">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="넘어가려면 버튼을 터치" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="350dp"
+            android:layout_height="120dp"
+            app:srcCompat="@drawable/welcome" />
 
-    <Button
-        android:id="@+id/btnBtn"
-        android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/welcome_txt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="100dp">
+
+        <Button
+            android:id="@+id/btnEnter"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="시작하기" />
+    </LinearLayout>
 </LinearLayout>
