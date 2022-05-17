@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.capstone.adapter.chatAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,12 +24,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Activity8Individchat extends AppCompatActivity {
+    private String myUid;
     private ArrayList<item3> iList3;
     Button btnOut, btnSend;
     EditText edtChat;
     FirebaseDatabase fireDB;
     DatabaseReference chatRef;
     ArrayList<MessageItem> msgArray = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,8 @@ public class Activity8Individchat extends AppCompatActivity {
         fireDB = FirebaseDatabase.getInstance();
         chatRef = fireDB.getReference("chat");
 
+        myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         LinearLayoutManager manager
                 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
 
@@ -58,8 +63,14 @@ public class Activity8Individchat extends AppCompatActivity {
                 MessageItem msgItem = snapshot.getValue(MessageItem.class);
                 msgArray.add(msgItem);
 
-                iList3.add(new item3(msgItem.getMsg(), code.item3.RIGHT_CONTENT));
-                chatRef.removeValue();
+                if(myUid == msgItem.getUid()) {
+                    iList3.add(new item3(msgItem.getMsg(), code.item3.RIGHT_CONTENT));
+                    chatRef.removeValue();
+                }
+                else {
+                    iList3.add(new item3(msgItem.getMsg(), code.item3.LEFT_CONTENT));
+                    chatRef.removeValue();
+                }
             }
 
             @Override
@@ -94,7 +105,8 @@ public class Activity8Individchat extends AppCompatActivity {
     public void clickSend(View view) {
         String msg = edtChat.getText().toString();
 
-        MessageItem msgItem = new MessageItem(msg);
+
+        MessageItem msgItem = new MessageItem(msg, FirebaseAuth.getInstance().getCurrentUser().getUid());
         chatRef.push().setValue(msgItem);
         edtChat.setText("");
 
@@ -108,10 +120,9 @@ public class Activity8Individchat extends AppCompatActivity {
     {
         iList3 = new ArrayList<>();
 
-        iList3.add(new item3("사용자1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
-        iList3.add(new item3("사용자2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
-        iList3.add(new item3("안녕하세요", code.item3.LEFT_CONTENT));
-        iList3.add(new item3("안녕하세요", code.item3.RIGHT_CONTENT));
-
+        iList3.add(new item3("익명1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
+        iList3.add(new item3("익명2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
+        //iList3.add(new item3("안녕하세요", code.item3.LEFT_CONTENT));
+        //iList3.add(new item3("안녕하세요", code.item3.RIGHT_CONTENT));
     }
 }
