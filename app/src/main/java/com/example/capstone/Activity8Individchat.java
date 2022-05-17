@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -39,7 +40,6 @@ public class Activity8Individchat extends AppCompatActivity {
         setContentView(R.layout.activity8_individchat);
 
         this.initializeData();
-        //getSupportActionBar().setTitle("개인채팅방");
 
         RecyclerView recyclerView = findViewById(R.id.ichatrecyclerView);
         btnOut = findViewById(R.id.btn_Out);
@@ -71,6 +71,13 @@ public class Activity8Individchat extends AppCompatActivity {
                     iList3.add(new item3(msgItem.getMsg(), code.item3.LEFT_CONTENT));
                     chatRef.removeValue();
                 }
+
+                recyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);
+                    }
+                });
             }
 
             @Override
@@ -120,8 +127,8 @@ public class Activity8Individchat extends AppCompatActivity {
     {
         iList3 = new ArrayList<>();
 
-        iList3.add(new item3("익명1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
-        iList3.add(new item3("익명2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
+        //iList3.add(new item3("익명1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
+        //iList3.add(new item3("익명2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
         //iList3.add(new item3("안녕하세요", code.item3.LEFT_CONTENT));
         //iList3.add(new item3("안녕하세요", code.item3.RIGHT_CONTENT));
     }
