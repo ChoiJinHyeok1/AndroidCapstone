@@ -14,14 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
+            android:name=".ChatAdapter1"
+            android:exported="false" />
+        <activity
             android:name=".ChatWait"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="true" /> <!-- 액티비티 생성시 있는지 확인 -->
+        <activity
             android:name=".Activity11Notice"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Waitingforapproval"
-            android:exported="false" /> <!-- 액티비티 생성시 있는지 확인 -->
+            android:exported="true" />
         <activity
             android:name=".Activity2Login"
             android:exported="true" />
