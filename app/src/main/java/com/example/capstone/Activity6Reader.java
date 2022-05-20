@@ -1,5 +1,6 @@
 package com.example.capstone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,12 +15,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.capstone.adapter.commentRecyclerAdapter;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class Activity6Reader extends AppCompatActivity {
+    private static final String TAG= "Activity6Reader";
     private ArrayList<item2> iList2;
     private RecyclerView commentRecyclerView;
+    FirebaseFirestore firebaseFirestore;
+    String postId;
+    Integer Ilikecnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +57,39 @@ public class Activity6Reader extends AppCompatActivity {
         tv_Content.setText(scontents);
 
         TextView tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
-        Integer Ilikecnt = intent.getIntExtra("likecnt", 0);
+        Ilikecnt = intent.getIntExtra("likecnt", 0);
         String slikecnt = Ilikecnt.toString();
         tv_likecnt.setText(slikecnt);
 
+        postId = intent.getExtras().getString("postId");
+
         setItemInfo();
         setAdapter();
+
+        likebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Ilikecnt = Ilikecnt+1;
+                firebaseFirestore = FirebaseFirestore.getInstance();
+                firebaseFirestore.collection("posts").document(postId)
+                        .update("likecnt", Ilikecnt)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.w(TAG, "Success!");
+                                String slikecnt = Ilikecnt.toString();
+                                tv_likecnt.setText(slikecnt);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
+
+            }
+        });
     }
 
     //리사이클러뷰

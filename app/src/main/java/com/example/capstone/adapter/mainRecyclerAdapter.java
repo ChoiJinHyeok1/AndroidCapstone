@@ -56,6 +56,7 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
                 intent.putExtra("title", mDataset.get(mPosition).getTitle());
                 intent.putExtra("contents", mDataset.get(mPosition).getContents());
                 intent.putExtra("likecnt", String.valueOf(mDataset.get(mPosition).getLikecnt() ));
+                intent.putExtra("postId", mDataset.get(mPosition).getPostId());
                 activity.startActivity(intent);
             }
         });
