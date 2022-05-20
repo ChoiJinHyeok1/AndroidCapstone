@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity2Login extends AppCompatActivity {
     private EditText edtMail, edtPwd;
-    private Button btnJoin, btnLogin;
+    private ImageView btnJoin, btnLogin;
     FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

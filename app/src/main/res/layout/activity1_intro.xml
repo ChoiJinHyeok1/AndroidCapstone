@@ -4,31 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBE9E3"
+    android:background="@drawable/gradient"
     android:orientation="vertical"
-    android:paddingTop="30dp"
     tools:context=".Activity1Intro">
 
-    <ImageView
-        android:id="@+id/imgv_Title"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/title_txt" />
-
-    <ImageView
-        android:id="@+id/imgv_MainDoor"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/main_door" />
-
-    <ImageView
-        android:id="@+id/imgv_TapToEnter"
-        android:layout_width="300dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="15dp"
-        app:srcCompat="@drawable/tap_to_enter_txt" />
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/activity1intro01" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgvDoor"
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            app:srcCompat="@drawable/activity1intro02" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgvTxt"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/activity1intro03" />
+    </LinearLayout>
 
 </LinearLayout>
