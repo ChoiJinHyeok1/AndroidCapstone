@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity3SignUp extends AppCompatActivity {
     private EditText edtSignUpEmail, edtSignUpPwd, edtSignAge, edtSignName;
-    private Button btnSign;
+    private ImageView btnSign;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     FirebaseAuth firebaseAuth;
@@ -31,7 +32,7 @@ public class Activity3SignUp extends AppCompatActivity {
         edtSignUpPwd = (EditText) findViewById(R.id.edtSinPwd);
         edtSignAge = (EditText) findViewById(R.id.edtSinAge);
         edtSignName = (EditText) findViewById(R.id.edtSinName);
-        btnSign = (Button) findViewById(R.id.btn_Sign);
+        btnSign = findViewById(R.id.btnSign);
         firebaseAuth = FirebaseAuth.getInstance();
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override

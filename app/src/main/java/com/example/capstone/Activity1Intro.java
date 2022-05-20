@@ -14,16 +14,19 @@ public class Activity1Intro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity1_intro);
-        ImageView imageView1 = (ImageView)findViewById(R.id.imgv_Title);
-        ImageView imageView2 = (ImageView)findViewById(R.id.imgv_MainDoor);
-        ImageView imageView3 = (ImageView)findViewById(R.id.imgv_TapToEnter);
+        ImageView imgvTitle = (ImageView)findViewById(R.id.imgvTitle);
+        ImageView imgvDoor = (ImageView)findViewById(R.id.imgvDoor);
+        ImageView imgvTxt = (ImageView)findViewById(R.id.imgvTxt);
         final Animation animation1 = AnimationUtils.loadAnimation(this,
                 R.anim.animationfortitle);
-        imageView1.startAnimation(animation1);
         final Animation animation2 = AnimationUtils.loadAnimation(this,
+                R.anim.animationfortitle2);
+        imgvTitle.startAnimation(animation1);
+        imgvTitle.startAnimation(animation2);
+        final Animation animation3 = AnimationUtils.loadAnimation(this,
                 R.anim.animationfortext);
-        imageView3.startAnimation(animation2);
-        imageView2.setOnClickListener(new View.OnClickListener() {
+        imgvTxt.startAnimation(animation3);
+        imgvDoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(Activity1Intro.this,
