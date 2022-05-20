@@ -26,7 +26,7 @@ public class ChatActivity extends AppCompatActivity {
     ListView listView;
 
     ArrayList<MessageItem> messageItems=new ArrayList<>();
-    ChatAdapter adapter;
+    //ChatAdapter adapter;
 
     //Firebase Database 관리 객체참조변수
     FirebaseDatabase firebaseDatabase;
@@ -44,8 +44,8 @@ public class ChatActivity extends AppCompatActivity {
 
         et=findViewById(R.id.et);
         listView=findViewById(R.id.listview);
-        adapter=new ChatAdapter(messageItems,getLayoutInflater());
-        listView.setAdapter(adapter);
+        //adapter=new ChatAdapter(messageItems,getLayoutInflater());
+        //listView.setAdapter(adapter);
 
         //Firebase DB관리 객체와 'caht'노드 참조객체 얻어오기
         firebaseDatabase= FirebaseDatabase.getInstance();
@@ -67,7 +67,7 @@ public class ChatActivity extends AppCompatActivity {
                 messageItems.add(messageItem);
 
                 //리스트뷰를 갱신
-                adapter.notifyDataSetChanged();
+                //adapter.notifyDataSetChanged();
                 listView.setSelection(messageItems.size()-1); //리스트뷰의 마지막 위치로 스크롤 위치 이동
             }
 
@@ -99,7 +99,7 @@ public class ChatActivity extends AppCompatActivity {
         //firebase DB에 저장할 값들( 닉네임, 메세지, 프로필 이미지URL, 시간)
         String nickName= G.nickName;
         String message= et.getText().toString();
-        String pofileUrl= G.profileUrl;
+        String profileUrl= G.profileUrl;
 
         //메세지 작성 시간 문자열로..
         Calendar calendar= Calendar.getInstance(); //현재 시간을 가지고 있는 객체

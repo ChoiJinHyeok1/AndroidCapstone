@@ -24,16 +24,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Activity7Writer extends AppCompatActivity {
-    private static final String TAG = "Activity7Writer";
+    private static final String TAG= "Activity7Writer";
     private RelativeLayout loaderLayout;
     private FirebaseUser user;
+    private PostInfo postInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity7_writer);
 
-        //로딩창 뜨는거
+//로딩창 뜨는거
         loaderLayout = findViewById(R.id.loaderLayout);
 
         findViewById(R.id.btn_WriteFin).setOnClickListener(onClickListener);
@@ -56,26 +57,27 @@ public class Activity7Writer extends AppCompatActivity {
     private void storageUpload() {
         final String title = ((EditText) findViewById(R.id.titleEditText)).getText().toString();
         final String contents = ((EditText) findViewById(R.id.contentsEditText)).getText().toString();
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        final DocumentReference documentReference = postInfo == null ? firebaseFirestore.collection("posts").document() : firebaseFirestore.collection("posts").document();
 
         if (title.length() > 0 && contents.length() > 0) {
             loaderLayout.setVisibility(View.VISIBLE);
             user = FirebaseAuth.getInstance().getCurrentUser();
 
             Timestamp createdAt = Timestamp.now();
-            PostInfo postInfo = new PostInfo(title, contents, user.getUid(), createdAt, 0);
-            storeUpload(postInfo);
+            storeUpload(documentReference, new PostInfo(title, contents, user.getUid(), createdAt, 0, documentReference.getId()));
 
         } else {
             startToast("회원정보를 입력해주세요.");
         }
     }
 
-    private void storeUpload(PostInfo postInfo){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("posts").add(postInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+    private void storeUpload(DocumentReference documentReference, PostInfo postInfo) {
+        documentReference.set(postInfo)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, "successfully written!");
                         loaderLayout.setVisibility(View.GONE);
                     }
                 })
@@ -83,10 +85,27 @@ public class Activity7Writer extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
-                        loaderLayout.setVisibility(View.GONE);
+//                        loaderLayout.setVisibility(View.GONE);
                     }
                 });
     }
+
+//    private void storeUpload(PostInfo postInfo){
+//        db.collection("posts").add(postInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+//                        loaderLayout.setVisibility(View.GONE);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//                        loaderLayout.setVisibility(View.GONE);
+//                    }
+//                });
+//    }
 
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

@@ -49,8 +49,8 @@ public class Activity6Reader extends AppCompatActivity {
         tv_Content.setText(scontents);
 
         TextView tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
-        Long llikecnt = intent.getLongExtra("likecnt", 0);
-        String slikecnt = llikecnt.toString();
+        Integer Ilikecnt = intent.getIntExtra("likecnt", 0);
+        String slikecnt = Ilikecnt.toString();
         tv_likecnt.setText(slikecnt);
 
         setItemInfo();
