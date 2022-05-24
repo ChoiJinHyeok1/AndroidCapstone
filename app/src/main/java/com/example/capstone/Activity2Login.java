@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,17 +21,21 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity2Login extends AppCompatActivity {
     private EditText edtMail, edtPwd;
-    private Button btnJoin, btnLogin;
+    private ImageView imgvTitle, btnJoin, btnLogin;
     FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2_login);
+        imgvTitle = findViewById(R.id.imgvActv2Title);
         edtMail = findViewById(R.id.edtLoginMail);
         edtPwd = findViewById(R.id.edtLoginPwd);
         btnJoin = findViewById(R.id.btnJoin);
         btnLogin = findViewById(R.id.btnLogin);
         firebaseAuth = firebaseAuth.getInstance();
+        final Animation animation = AnimationUtils.loadAnimation(this,
+                R.anim.animationfortext2);
+        imgvTitle.startAnimation(animation);
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

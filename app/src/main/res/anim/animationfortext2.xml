@@ -3,6 +3,6 @@
     android:interpolator="@android:anim/cycle_interpolator"
     android:duration="1000"
     android:fromYDelta="0"
-    android:toYDelta="2%"
+    android:toYDelta="1%"
     android:repeatCount="infinite">
 </translate>
