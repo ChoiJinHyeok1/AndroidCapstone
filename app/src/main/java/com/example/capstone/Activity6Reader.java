@@ -66,34 +66,20 @@ public class Activity6Reader extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+        TextView tv_Title = (TextView) findViewById(R.id.tv_Title);
+        String stitle = intent.getExtras().getString("title");
+        tv_Title.setText(stitle);
+
+        TextView tv_Content = (TextView) findViewById(R.id.tv_Content);
+        String scontents = intent.getExtras().getString("contents");
+        tv_Content.setText(scontents);
+
+        TextView tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
+        likecnt = intent.getExtras().getString("likecnt");
+        tv_likecnt.setText(likecnt);
+
         postId = intent.getExtras().getString("postId");
 
-        // 데이터 읽어오는 코드
-        // 느려서 그런지 원래 6화면잠깐 뜨는데 이거 수정예정...
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("posts")
-                .document(postId)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                tv_Title.setText(document.getData().get("title").toString());
-                                tv_Content.setText(document.getData().get("contents").toString());
-                                likecnt = String.valueOf(document.getData().get("likecnt"));
-                                tv_likecnt.setText(String.valueOf(document.getData().get("likecnt")));
-
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                            } else {
-                                Log.d(TAG, "No such document");
-                            }
-                        } else {
-                            Log.d(TAG, "get failed with ", task.getException());
-                        }
-                    }
-                });
 
         // 댓글어댑터(임시)
         setItemInfo();
