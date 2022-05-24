@@ -107,7 +107,13 @@ public class Activity5Main extends AppCompatActivity {
                     startActivity(mIntent);
                 }
             });
-
+            ibtnSearch.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent mIntent = new Intent(Activity5Main.this, SearchActivity.class);
+                    startActivity(mIntent);
+                }
+            });
             ibtnRanChat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
