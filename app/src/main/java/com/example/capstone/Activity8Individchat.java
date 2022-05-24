@@ -21,11 +21,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class Activity8Individchat extends AppCompatActivity {
-    private String myUid;
+    private String myUid, chatRoomUid;
     private ArrayList<item3> iList3;
     Button btnOut, btnSend;
     EditText edtChat;
@@ -47,7 +48,21 @@ public class Activity8Individchat extends AppCompatActivity {
         edtChat = findViewById(R.id.edt_Chat);
 
         fireDB = FirebaseDatabase.getInstance();
-        chatRef = fireDB.getReference("chat");
+
+        fireDB.getReference().child("chatrooms").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                chatRoomUid = snapshot.getKey();
+                iList3.add(new item3(chatRoomUid, code.item3.CENTER_CONTENT));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        chatRef = fireDB.getReference().child("chatrooms").child("chat");
 
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
