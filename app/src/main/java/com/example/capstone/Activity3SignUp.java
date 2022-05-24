@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Activity3SignUp extends AppCompatActivity {
     private EditText edtSignUpEmail, edtSignUpPwd, edtSignAge, edtSignName;
-    private ImageView btnSign;
+    private ImageView imgv, btnSign;
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
     FirebaseAuth firebaseAuth;
@@ -33,7 +35,11 @@ public class Activity3SignUp extends AppCompatActivity {
         edtSignAge = (EditText) findViewById(R.id.edtSinAge);
         edtSignName = (EditText) findViewById(R.id.edtSinName);
         btnSign = findViewById(R.id.btnSign);
+        imgv = findViewById(R.id.imageView);
         firebaseAuth = FirebaseAuth.getInstance();
+        final Animation animation = AnimationUtils.loadAnimation(this,
+                R.anim.animationfortext2);
+        imgv.startAnimation(animation);
         btnSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
