@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.capstone.Info.LikeInfo;
 import com.example.capstone.Info.PostInfo;
 import com.example.capstone.adapter.commentRecyclerAdapter;
@@ -39,6 +40,7 @@ public class Activity6Reader extends AppCompatActivity {
     private static final String TAG= "Activity6Reader";
     private ArrayList<item2> iList2;
     private RecyclerView commentRecyclerView;
+    private LottieAnimationView likeAnimButton;
     private FirebaseUser user;
     private FirebaseFirestore firebaseFirestore;
     private LikeInfo likeInfo;
@@ -59,11 +61,14 @@ public class Activity6Reader extends AppCompatActivity {
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
         ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
-        ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
+        //ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
         tv_Title= (TextView) findViewById(R.id.tv_Title);
         tv_Content = (TextView) findViewById(R.id.tv_Content);
         tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
         iList2 = new ArrayList<>();
+        likeAnimButton = (LottieAnimationView)findViewById(R.id.likeAnimButton);
+
+        likeAnimButton.setProgress(33);
 
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +91,7 @@ public class Activity6Reader extends AppCompatActivity {
 
 
         // 좋아요 버튼 클릭시
-        likebtn.setOnClickListener(new View.OnClickListener() {
+        likeAnimButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog01.show(); // 다이얼로그 띄우기
@@ -103,6 +108,9 @@ public class Activity6Reader extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //좋아요
+                        dialog01.dismiss(); // 다이얼로그 닫기
+                        likeAnimButton.setAnimation("good.json");
+                        likeAnimButton.playAnimation();
                         addlikecollection();
                     }
                 });
@@ -191,7 +199,6 @@ public class Activity6Reader extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Log.w(TAG, "Success!");
-                        dialog01.dismiss(); // 다이얼로그 닫기
                         tv_likecnt.setText(String.valueOf(Ilikecnt));
                     }
                 })
