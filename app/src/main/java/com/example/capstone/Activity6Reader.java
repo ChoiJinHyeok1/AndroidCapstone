@@ -16,12 +16,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.example.capstone.Info.LikeInfo;
+import com.example.capstone.Info.PostInfo;
 import com.example.capstone.adapter.commentRecyclerAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -33,9 +40,13 @@ public class Activity6Reader extends AppCompatActivity {
     private static final String TAG= "Activity6Reader";
     private ArrayList<item2> iList2;
     private RecyclerView commentRecyclerView;
+    private LottieAnimationView likeAnimButton;
+    private FirebaseUser user;
+    private FirebaseFirestore firebaseFirestore;
+    private LikeInfo likeInfo;
+
     TextView tv_Title, tv_Content, tv_likecnt;
-    FirebaseFirestore firebaseFirestore;
-    String postId, likecnt;
+    String postId, likecnt, checkid;
     Integer Ilikecnt;
     Dialog dialog01;
 
@@ -50,11 +61,14 @@ public class Activity6Reader extends AppCompatActivity {
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
         ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
-        ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
+        //ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
         tv_Title= (TextView) findViewById(R.id.tv_Title);
         tv_Content = (TextView) findViewById(R.id.tv_Content);
         tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
         iList2 = new ArrayList<>();
+        likeAnimButton = (LottieAnimationView)findViewById(R.id.likeAnimButton);
+
+        likeAnimButton.setProgress(33);
 
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +79,50 @@ public class Activity6Reader extends AppCompatActivity {
         });
 
 
+        //게시글 내용 읽음
+        getRead();
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // 댓글어댑터(임시)
+        setItemInfo();
+        setAdapter();
+
+
+        // 좋아요 버튼 클릭시
+        likeAnimButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog01.show(); // 다이얼로그 띄우기
+                // 취소
+                Button noBtn = dialog01.findViewById(R.id.noBtn);
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog01.dismiss(); // 다이얼로그 닫기
+                    }
+                });
+                // 확인
+                dialog01.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //좋아요
+                        dialog01.dismiss(); // 다이얼로그 닫기
+                        likeAnimButton.setAnimation("good.json");
+                        likeAnimButton.playAnimation();
+                        addlikecollection();
+                    }
+                });
+            }
+        });
+
+
+    }
+
+
+    //게시글 내용 읽음
+    private void getRead() {
         Intent intent = getIntent();
         TextView tv_Title = (TextView) findViewById(R.id.tv_Title);
         String stitle = intent.getExtras().getString("title");
@@ -79,68 +137,77 @@ public class Activity6Reader extends AppCompatActivity {
         tv_likecnt.setText(likecnt);
 
         postId = intent.getExtras().getString("postId");
+    }
 
 
-        // 댓글어댑터(임시)
-        setItemInfo();
-        setAdapter();
+    //좋아요
+    private void addlikecollection() {
 
-        // 좋아요 클릭시
-        likebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog01();
-
-            }
-
-            private void showDialog01() {
-                dialog01.show(); // 다이얼로그 띄우기
-
-                // 취소 버튼
-                Button noBtn = dialog01.findViewById(R.id.noBtn);
-                noBtn.setOnClickListener(new View.OnClickListener() {
+        firebaseFirestore.collection("posts").document(postId).collection("likes").document(user.getUid()).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onClick(View v) {
-                        dialog01.dismiss(); // 다이얼로그 닫기
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot documentSnapshot = task.getResult();
+                            //이미 존재하면
+                            if (documentSnapshot.exists()) {
+                                checkid = documentSnapshot.getData().get("check").toString();
+                                if(checkid.equals("ok")){
+                                    Toast.makeText(Activity6Reader.this,
+                                            "이미 좋아요 한 게시글 입니다." , Toast.LENGTH_SHORT).show();
+                                    dialog01.dismiss(); // 다이얼로그 닫기
+                                }
+                                else{
+                                    updatelikecnt();
+                                }
+                            } else { //존재x
+                                final DocumentReference likeReference = likeInfo == null ?
+                                        firebaseFirestore.collection("posts").document(postId).collection("likes").document(user.getUid())
+                                        : firebaseFirestore.collection("posts").document(postId).collection("likes").document(user.getUid());
+                                storeUpload(likeReference, new LikeInfo("ok"));
+                                updatelikecnt();
+                            }
+                        }
                     }
                 });
-                // 확인 버튼
-                dialog01.findViewById(R.id.yesBtn).setOnClickListener(new View.OnClickListener() {
+
+    }
+
+    private void storeUpload(DocumentReference likeReference, LikeInfo likeInfo) {
+        likeReference.set(likeInfo)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onClick(View v) {
-                        updatelikecnt();
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, "successfully!");
                     }
-
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
                 });
-            }
+    }
 
-            private void updatelikecnt() {
-                Ilikecnt = Integer.parseInt(likecnt);
-                Ilikecnt = Ilikecnt+1;
-                firebaseFirestore = FirebaseFirestore.getInstance();
-                firebaseFirestore.collection("posts").document(postId)
-                        .update("likecnt", Ilikecnt)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Log.w(TAG, "Success!");
-                                dialog01.dismiss(); // 다이얼로그 닫기
-                                tv_likecnt.setText(String.valueOf(Ilikecnt));
-
-                                //중복 좋아요 안되게 처리하기!
-                                //다이얼로그 꾸미기
-                                //좋아요 누를때 애니메이션 추가
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error adding document", e);
-                            }
-                        });
-
-            }
-        });
+    //좋아요 +1하고 update하는 함수
+    private void updatelikecnt() {
+        Ilikecnt = Integer.parseInt(likecnt);
+        Ilikecnt = Ilikecnt+1;
+        firebaseFirestore.collection("posts").document(postId)
+                .update("likecnt", Ilikecnt)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.w(TAG, "Success!");
+                        tv_likecnt.setText(String.valueOf(Ilikecnt));
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
+                });
     }
 
     //리사이클러뷰

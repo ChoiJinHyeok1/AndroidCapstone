@@ -1,4 +1,4 @@
-package com.example.capstone;
+package com.example.capstone.Info;
 
 import com.google.firebase.Timestamp;
 

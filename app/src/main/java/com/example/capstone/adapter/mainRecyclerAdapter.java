@@ -13,10 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.capstone.Activity6Reader;
-import com.example.capstone.PostInfo;
+import com.example.capstone.Info.PostInfo;
 import com.example.capstone.R;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
 
