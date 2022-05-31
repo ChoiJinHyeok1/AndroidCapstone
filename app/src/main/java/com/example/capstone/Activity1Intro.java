@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -26,13 +27,15 @@ public class Activity1Intro extends AppCompatActivity {
         final Animation animation3 = AnimationUtils.loadAnimation(this,
                 R.anim.animationfortext);
         imgvTxt.startAnimation(animation3);
-        imgvDoor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mIntent = new Intent(Activity1Intro.this,
-                        Activity2Login.class);
-                startActivity(mIntent);
-            }
-        });
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        if (action == MotionEvent.ACTION_DOWN) {
+            // 다음 화면으로 넘어갈 클래스 지정한다.
+            Intent intent = new Intent(getApplicationContext(), Activity2Login.class);
+            startActivity(intent);  // 다음 화면으로 넘어간다.
+        }
+        return super.onTouchEvent(event);
     }
 }

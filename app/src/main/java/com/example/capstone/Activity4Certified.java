@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -25,14 +27,18 @@ import java.io.InputStream;
 public class Activity4Certified extends AppCompatActivity {
     private final int GALLERY_CODE = 10;
     private FirebaseStorage storage;
-    ImageView btnAttach;
+    ImageView imgvTitle, btnAttach;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity4_certified);
         findViewById(R.id.btnAttach).setOnClickListener(onClickListener);
         storage = FirebaseStorage.getInstance();
+        imgvTitle = findViewById(R.id.imgvAct4Title);
         btnAttach = (ImageView)findViewById(R.id.btnAttach);
+        final Animation animation = AnimationUtils.loadAnimation(this,
+                R.anim.animationfortext2);
+        imgvTitle.startAnimation(animation);
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
