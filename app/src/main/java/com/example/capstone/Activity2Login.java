@@ -55,7 +55,11 @@ public class Activity2Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Intent mIntent = new Intent(Activity2Login.this, Activity5Main.class);
                             startActivity(mIntent);
-                        } else {Toast.makeText(Activity2Login.this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();}
+                        } else if (edtMail.getText().toString() == null) {
+                            Toast.makeText(Activity2Login.this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        } else if (edtPwd.getText().toString() == null) {
+                            Toast.makeText(Activity2Login.this, "이메일 또는 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }

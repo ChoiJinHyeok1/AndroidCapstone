@@ -55,8 +55,12 @@ public class Activity3SignUp extends AppCompatActivity {
                             mIntent.putExtra("usrId", email);
                             startActivity(mIntent);
                             finish();
-                        } else { Toast.makeText(Activity3SignUp.this, "등록할 수 없습니다.", Toast.LENGTH_SHORT).show();
-                            return;
+                        } else if (edtSignUpEmail.getText().toString() == null) {
+                            Toast.makeText(Activity3SignUp.this, "이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(Activity3SignUp.this, "등록할 수 없습니다.", Toast.LENGTH_SHORT).show();
+//                            return;
                         }
                     }
                 });
