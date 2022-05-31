@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Activity8Individchat extends AppCompatActivity {
-    private String myUid, chatRoomUid;
+    private String myUid, chatRooms;
     private ArrayList<item3> iList3;
     Button btnOut, btnSend;
     EditText edtChat;
@@ -42,27 +43,15 @@ public class Activity8Individchat extends AppCompatActivity {
 
         this.initializeData();
 
+        Intent intent = new Intent();
+        chatRooms = intent.getStringExtra("chatRoom");
+
         RecyclerView recyclerView = findViewById(R.id.ichatrecyclerView);
-        btnOut = findViewById(R.id.btn_Out);
         btnSend = findViewById(R.id.btn_Send);
+        btnOut = findViewById(R.id.btn_Out);
         edtChat = findViewById(R.id.edt_Chat);
 
-        fireDB = FirebaseDatabase.getInstance();
-
-        fireDB.getReference().child("chatrooms").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                chatRoomUid = snapshot.getKey();
-                iList3.add(new item3(chatRoomUid, code.item3.CENTER_CONTENT));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        chatRef = fireDB.getReference().child("chatrooms").child("chat");
+        chatRef = fireDB.getReference().child("chatrooms").child(chatRooms);
 
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -142,9 +131,6 @@ public class Activity8Individchat extends AppCompatActivity {
     {
         iList3 = new ArrayList<>();
 
-        //iList3.add(new item3("익명1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
-        //iList3.add(new item3("익명2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
-        //iList3.add(new item3("안녕하세요", code.item3.LEFT_CONTENT));
-        //iList3.add(new item3("안녕하세요", code.item3.RIGHT_CONTENT));
+        iList3.add(new item3("매칭에 성공하였습니다.", code.item3.CENTER_CONTENT));
     }
 }
