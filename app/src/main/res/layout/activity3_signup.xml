@@ -31,33 +31,6 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/laySinPwd"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="380sp"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="10dp"
-            android:hint="회원님이 사용할 비밀번호를 입력해주세요."
-            app:boxStrokeColor="#A7B0C2"
-            app:hintTextColor="#7C7C7C"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtSinPwd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textCursorDrawable="@drawable/cursor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/laySinMail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="380sp"
@@ -77,6 +50,33 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtSinMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textCursorDrawable="@drawable/cursor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/laySinPwd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380sp"
+            android:layout_height="60sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:hint="회원님이 사용할 비밀번호를 입력해주세요."
+            app:boxStrokeColor="#A7B0C2"
+            app:hintTextColor="#7C7C7C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSinPwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
