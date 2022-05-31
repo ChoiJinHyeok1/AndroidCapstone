@@ -27,77 +27,101 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/ibori"
-                android:orientation="vertical"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp">
-
-                <ImageButton
-                    android:id="@+id/ibtn_Back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="?attr/homeAsUpIndicator" />
-
-
-                <TextView
-                    android:id="@+id/tv_Title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="18dp"
-                    android:paddingBottom="5dp"
-                    android:text="게시글 제목 영역 입니다."
-                    android:textColor="@color/black"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="5dp">
+                    android:layout_height="match_parent"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ibtn_Back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="?attr/homeAsUpIndicator" />
 
                     <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_Title"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="조회수 : 10회"
-                        android:textSize="12dp" />
+                        android:paddingTop="18dp"
+                        android:paddingBottom="5dp"
+                        android:text="게시글 제목 영역 입니다."
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="조회수 : 10회"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="좋아요 : "
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/tv_likecnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10회"
+                            android:textSize="12dp" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_Content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:text="좋아요 : "
-                        android:textSize="12dp" />
-                    <TextView
-                        android:id="@+id/tv_likecnt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10회"
-                        android:textSize="12dp" />
+                        android:layout_margin="7dp"
+                        android:paddingTop="7dp"
+                        android:text="게시글 내용 영역 입니다.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세."
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_Content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="7dp"
-                    android:paddingTop="7dp"
-                    android:text="게시글 내용 영역 입니다.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세."
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-                <ImageView
-                    android:id="@+id/likebtn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="7dp"
-                    app:srcCompat="@drawable/like_btn" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/commentRecyclerView"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp" />
+                    android:paddingLeft="4dp"
+                    android:orientation="vertical">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/likeAnimButton"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        app:lottie_autoPlay="false"
+                        app:lottie_fileName="good.json"
+                        app:lottie_loop="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="14dp"
+                    android:paddingRight="14dp"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/commentRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp" />
+                </LinearLayout>
+
 
             </LinearLayout>
         </RelativeLayout>
