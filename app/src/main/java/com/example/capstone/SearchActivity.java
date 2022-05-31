@@ -23,7 +23,8 @@ public class SearchActivity extends AppCompatActivity {
           @Override
           public boolean onQueryTextSubmit(String query) {
               //검색 버튼이 눌러졌을 때 이벤트 처리
-
+              Intent mIntent = new Intent(SearchActivity.this, Activity1Intro.class);
+              startActivity(mIntent);
               return false;
           }
 
