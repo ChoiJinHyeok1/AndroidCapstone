@@ -111,6 +111,15 @@ public class Activity8Individchat extends AppCompatActivity {
                 clickSend(view);
             }
         });
+
+        btnOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fireDB.getInstance().getReference().child("chatrooms").child(chatRooms).removeValue();
+                Intent mIntent = new Intent(Activity8Individchat.this, Activity5Main.class);
+                startActivity(mIntent);
+            }
+        });
     }
 
     public void clickSend(View view) {
