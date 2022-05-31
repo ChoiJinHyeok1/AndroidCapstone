@@ -13,7 +13,6 @@ import android.widget.ImageView;
 
 public class Waitingforapproval extends AppCompatActivity {
     ImageView imgvTitle1, imgvTitle2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +24,6 @@ public class Waitingforapproval extends AppCompatActivity {
         imgvTitle1.startAnimation(animation);
         imgvTitle2.startAnimation(animation);
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
@@ -35,5 +33,9 @@ public class Waitingforapproval extends AppCompatActivity {
             startActivity(intent);  // 다음 화면으로 넘어간다.
         }
         return super.onTouchEvent(event);
+    }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

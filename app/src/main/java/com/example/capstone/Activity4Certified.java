@@ -88,6 +88,10 @@ public class Activity4Certified extends AppCompatActivity {
             });
         }
     }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }
 
 
