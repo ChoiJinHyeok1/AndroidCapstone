@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.capstone.Activity6Reader;
+import com.example.capstone.Activity.Activity6Reader;
 import com.example.capstone.Info.PostInfo;
 import com.example.capstone.R;
 

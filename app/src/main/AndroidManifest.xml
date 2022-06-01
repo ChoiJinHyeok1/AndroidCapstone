@@ -14,55 +14,49 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
-            android:name=".SearchActivity"
+            android:name=".Activity.Activity12Search"
             android:exported="true" />
-        <activity
-            android:name=".ChatAdapter1"
-            android:exported="false" />
         <activity
             android:name=".ChatWait"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ChatActivity"
             android:exported="true" />
         <activity
-            android:name=".ChatActivity"
-            android:exported="true" /> <!-- 액티비티 생성시 있는지 확인 -->
-        <activity
-            android:name=".Activity11Notice"
+            android:name=".Activity.Activity11Notice"
             android:exported="true" />
         <activity
             android:name=".Waitingforapproval"
             android:exported="true" />
         <activity
-            android:name=".Activity2Login"
+            android:name=".Activity.Activity2Login"
             android:exported="true" />
         <activity
-            android:name=".Activity3SignUp"
+            android:name=".Activity.Activity3SignUp"
             android:exported="true" />
         <activity
-            android:name=".Activity4Certified"
+            android:name=".Activity.Activity4Certified"
             android:exported="true" />
         <activity
-            android:name=".Activity5Main"
+            android:name=".Activity.Activity5Main"
             android:exported="true" />
         <activity
-            android:name=".Activity6Reader"
+            android:name=".Activity.Activity6Reader"
             android:exported="true" />
         <activity
-            android:name=".Activity7Writer"
+            android:name=".Activity.Activity7Writer"
             android:exported="true" />
         <activity
-            android:name=".Activity8Individchat"
+            android:name=".Activity.Activity8Individchat"
             android:exported="true" />
         <activity
-            android:name=".Activity9Groupchat"
+            android:name=".Activity.Activity9Groupchat"
             android:exported="true" />
         <activity
-            android:name=".Activity10Listitem"
+            android:name=".Activity.Activity10Listitem"
             android:exported="true" /> <!-- 처음 시작할 액티비티 -->
         <activity
-            android:name=".Activity1Intro"
+            android:name=".Activity.Activity1Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

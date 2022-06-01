@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     android:orientation="vertical"
-    tools:context=".Activity9Groupchat">
+    tools:context=".Activity.Activity9Groupchat">
 
     <LinearLayout
         android:layout_width="match_parent"

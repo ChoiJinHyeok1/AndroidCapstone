@@ -10,7 +10,7 @@
     android:paddingEnd="5dp"
     android:paddingBottom="5dp"
     android:orientation="vertical"
-    tools:context=".Activity11Notice">
+    tools:context=".Activity.Activity11Notice">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.capstone;
+package com.example.capstone.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.capstone.Info.PostInfo;
+import com.example.capstone.R;
 import com.example.capstone.adapter.mainRecyclerAdapter;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -107,7 +108,7 @@ public class Activity5Main extends AppCompatActivity {
             ibtnSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent mIntent = new Intent(Activity5Main.this, SearchActivity.class);
+                    Intent mIntent = new Intent(Activity5Main.this, Activity12Search.class);
                     startActivity(mIntent);
                 }
             });

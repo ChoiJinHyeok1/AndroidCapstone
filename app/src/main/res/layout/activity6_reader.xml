@@ -10,7 +10,7 @@
     android:paddingTop="5dp"
     android:paddingEnd="5dp"
     android:paddingBottom="5dp"
-    tools:context=".Activity6Reader">
+    tools:context=".Activity.Activity6Reader">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
