@@ -2,6 +2,7 @@ package com.example.capstone.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.capstone.Activity.Activity6Reader;
 import com.example.capstone.Info.PostInfo;
 import com.example.capstone.R;
+import com.google.firebase.Timestamp;
 
 import java.util.ArrayList;
+
 
 public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapter.MyViewHolder>{
     private ArrayList<PostInfo> mDataset;
@@ -75,12 +78,16 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
         TextView m_likecnt = cardView.findViewById(R.id.m_likecnt);
         m_likecnt.setText(String.valueOf(mDataset.get(position).getLikecnt()));
 
-//        TextView m_createAt = cardView.findViewById(R.id.m_createAt);
-//        m_createAt.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(mDataset.get(position).getCreatedAt()));
+        TextView m_time = cardView.findViewById(R.id.m_time);
+        Timestamp timestamp = (Timestamp) mDataset.get(position).getCreatedAt();
+        String date = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(new java.util.Date(String.valueOf(timestamp.toDate())));
+        m_time.setText(date);
 
-        Log.e("로그: ","데이터: "+mDataset.get(position).getTitle());
+        //Log.e("로그: ","데이터: "+date);
 
     }
+
+
 
     @Override
     public int getItemCount() {

@@ -24,8 +24,8 @@ public class commentRecyclerAdapter extends RecyclerView.Adapter<commentRecycler
 
         public MyViewHolder(final View itemView){
             super(itemView);
-            UserTxt = itemView.findViewById(R.id.textView1);
-            CommentTxt = itemView.findViewById(R.id.textView2);
+            UserTxt = itemView.findViewById(R.id.c_user);
+            CommentTxt = itemView.findViewById(R.id.c_contents);
         }
     }
 

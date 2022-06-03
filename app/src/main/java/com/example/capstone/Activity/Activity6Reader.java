@@ -1,36 +1,52 @@
 package com.example.capstone.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.capstone.Info.CommentInfo;
 import com.example.capstone.Info.LikeInfo;
+import com.example.capstone.Info.PostInfo;
 import com.example.capstone.R;
 import com.example.capstone.adapter.commentRecyclerAdapter;
+import com.example.capstone.adapter.mainRecyclerAdapter;
 import com.example.capstone.item2;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -42,8 +58,10 @@ public class Activity6Reader extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseFirestore firebaseFirestore;
     private LikeInfo likeInfo;
+    private CommentInfo commentInfo;
 
     TextView tv_Title, tv_Content, tv_likecnt;
+    EditText commentEditText;
     String postId, likecnt, checkid;
     Integer Ilikecnt;
     Dialog dialog01;
@@ -58,13 +76,15 @@ public class Activity6Reader extends AppCompatActivity {
         dialog01.setContentView(R.layout.dialog01);
 
         commentRecyclerView = findViewById(R.id.commentRecyclerView);
+        commentEditText = findViewById(R.id.commentEditText);
         ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
-        //ImageView likebtn = (ImageView) findViewById(R.id.likebtn);
+        ImageView commentsendimg = (ImageView) findViewById(R.id.commentsendimg);
         tv_Title= (TextView) findViewById(R.id.tv_Title);
         tv_Content = (TextView) findViewById(R.id.tv_Content);
         tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
         iList2 = new ArrayList<>();
         likeAnimButton = (LottieAnimationView)findViewById(R.id.likeAnimButton);
+
 
         likeAnimButton.setProgress(33);
 
@@ -73,6 +93,20 @@ public class Activity6Reader extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mIntent = new Intent(Activity6Reader.this, Activity5Main.class);
                 startActivity(mIntent);
+            }
+        });
+
+        commentsendimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String ccontents = commentEditText.getText().toString();
+                final DocumentReference commentReference = commentInfo == null ?
+                        firebaseFirestore.collection("posts").document(postId).collection("comments").document()
+                        : firebaseFirestore.collection("posts").document(postId).collection("comments").document();
+                Timestamp ccreatedAt = Timestamp.now();
+                storeUpload(commentReference, new CommentInfo(user.getUid(), ccontents, ccreatedAt, 0));
+
+
             }
         });
 
@@ -187,6 +221,23 @@ public class Activity6Reader extends AppCompatActivity {
                 });
     }
 
+    private void storeUpload(DocumentReference commentReference, CommentInfo commentInfo) {
+        commentReference.set(commentInfo)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, "successfully!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
+                });
+    }
+
+
     //좋아요 +1하고 update하는 함수
     private void updatelikecnt() {
         Ilikecnt = Integer.parseInt(likecnt);
@@ -207,6 +258,8 @@ public class Activity6Reader extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     //리사이클러뷰
     private void setAdapter() {

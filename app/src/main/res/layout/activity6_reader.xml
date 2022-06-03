@@ -111,9 +111,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="14dp">
+                    android:orientation="vertical">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/commentRecyclerView"
@@ -157,12 +155,19 @@
                     android:textSize="15dp" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="match_parent"
+                    android:id="@+id/commentEditText"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:hint="댓글을 입력하세요."
                     android:paddingLeft="12dp"
                     android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/commentsendimg"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:srcCompat="@drawable/comment_send_btn" />
 
 
             </LinearLayout>
