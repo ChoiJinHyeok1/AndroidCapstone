@@ -46,6 +46,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -53,12 +54,14 @@ import java.util.ArrayList;
 public class Activity6Reader extends AppCompatActivity {
     private static final String TAG= "Activity6Reader";
     private ArrayList<item2> iList2;
+    private ArrayList<CommentInfo> commentInfoArrayList;
     private RecyclerView commentRecyclerView;
     private LottieAnimationView likeAnimButton;
     private FirebaseUser user;
     private FirebaseFirestore firebaseFirestore;
     private LikeInfo likeInfo;
     private CommentInfo commentInfo;
+    commentRecyclerAdapter commentRecyclerAdapter;
 
     TextView tv_Title, tv_Content, tv_likecnt;
     EditText commentEditText;
@@ -75,7 +78,7 @@ public class Activity6Reader extends AppCompatActivity {
         dialog01.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dialog01.setContentView(R.layout.dialog01);
 
-        commentRecyclerView = findViewById(R.id.commentRecyclerView);
+//        commentRecyclerView = findViewById(R.id.commentRecyclerView);
         commentEditText = findViewById(R.id.commentEditText);
         ImageButton ibtnBack = (ImageButton) findViewById(R.id.ibtn_Back);
         ImageView commentsendimg = (ImageView) findViewById(R.id.commentsendimg);
@@ -83,10 +86,51 @@ public class Activity6Reader extends AppCompatActivity {
         tv_Content = (TextView) findViewById(R.id.tv_Content);
         tv_likecnt = (TextView) findViewById(R.id.tv_likecnt);
         iList2 = new ArrayList<>();
+
         likeAnimButton = (LottieAnimationView)findViewById(R.id.likeAnimButton);
 
 
+//        commentInfoArrayList = new ArrayList<>();
+//        commentRecyclerAdapter = new commentRecyclerAdapter(Activity6Reader.this, commentInfoArrayList);
+
+
+
+
         likeAnimButton.setProgress(33);
+
+        //게시글 내용 읽음
+        getRead();
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //commentRecyclerView.setAdapter(commentRecyclerAdapter);
+
+        firebaseFirestore.collection("posts").document(postId).collection("comments")
+                .orderBy("ccreatedAt", Query.Direction.ASCENDING).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            commentInfoArrayList = new ArrayList<>();
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                                Log.d(TAG, documentSnapshot.getId() + "=>" + documentSnapshot.getData());
+                                commentInfoArrayList.add(new CommentInfo(
+                                        "익명",
+                                        documentSnapshot.getData().get("ccontents").toString()
+                                ));
+                            }
+                            RecyclerView commentRecyclerView = findViewById(R.id.commentRecyclerView);
+                            commentRecyclerView.setHasFixedSize(true);
+                            commentRecyclerView.setLayoutManager(new LinearLayoutManager(Activity6Reader.this));
+                            RecyclerView.Adapter mAdapter = new commentRecyclerAdapter(Activity6Reader.this, commentInfoArrayList);
+                            commentRecyclerView.setAdapter(mAdapter);
+                        }else{
+                            Log.d(TAG, "Error", task.getException());
+                        }
+                    }
+                });
+
 
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,31 +139,6 @@ public class Activity6Reader extends AppCompatActivity {
                 startActivity(mIntent);
             }
         });
-
-        commentsendimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String ccontents = commentEditText.getText().toString();
-                final DocumentReference commentReference = commentInfo == null ?
-                        firebaseFirestore.collection("posts").document(postId).collection("comments").document()
-                        : firebaseFirestore.collection("posts").document(postId).collection("comments").document();
-                Timestamp ccreatedAt = Timestamp.now();
-                storeUpload(commentReference, new CommentInfo(user.getUid(), ccontents, ccreatedAt, 0));
-
-
-            }
-        });
-
-
-        //게시글 내용 읽음
-        getRead();
-
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-
-        // 댓글어댑터(임시)
-        setItemInfo();
-        setAdapter();
 
 
         // 좋아요 버튼 클릭시
@@ -146,6 +165,20 @@ public class Activity6Reader extends AppCompatActivity {
                         addlikecollection();
                     }
                 });
+            }
+        });
+
+        commentsendimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String ccontents = commentEditText.getText().toString();
+                final DocumentReference commentReference = commentInfo == null ?
+                        firebaseFirestore.collection("posts").document(postId).collection("comments").document()
+                        : firebaseFirestore.collection("posts").document(postId).collection("comments").document();
+                Timestamp ccreatedAt = Timestamp.now();
+                storeUpload(commentReference, new CommentInfo(user.getUid(), ccontents, ccreatedAt, 0));
+
+
             }
         });
 
@@ -260,21 +293,4 @@ public class Activity6Reader extends AppCompatActivity {
     }
 
 
-
-    //리사이클러뷰
-    private void setAdapter() {
-        commentRecyclerAdapter adapter = new commentRecyclerAdapter(iList2);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        commentRecyclerView.setLayoutManager(layoutManager);
-        commentRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        commentRecyclerView.setAdapter(adapter);
-    }
-    private void setItemInfo() {
-        iList2.add(new item2("익명","확인용"));
-        iList2.add(new item2("익명2","댓글예시2 입니다."));
-        iList2.add(new item2("익명3","댓글예시3 입니다."));
-        iList2.add(new item2("익명4","댓글예시4 입니다."));
-        iList2.add(new item2("익명5","댓글예시5 입니다."));
-
-    }
 }

@@ -9,19 +9,28 @@ public class PostInfo {
     private String publisher;
     private Timestamp createdAt;
     private Integer likecnt;
+    private Integer commentcnt;
     private String postId;
 
 
     public PostInfo(){}
 
-
-    public PostInfo(String title, String contents, String publisher, Timestamp createdAt, Integer likecnt, String postId) {
+    public PostInfo(String title, String contents, String publisher, Timestamp createdAt, Integer likecnt, Integer commentcnt, String postId) {
         this.title = title;
         this.contents = contents;
         this.publisher = publisher;
         this.createdAt = createdAt;
         this.likecnt = likecnt;
+        this.commentcnt = commentcnt;
         this.postId = postId;
+    }
+
+    public Integer getCommentcnt() {
+        return commentcnt;
+    }
+
+    public void setCommentcnt(Integer commentcnt) {
+        this.commentcnt = commentcnt;
     }
 
     public String getPostId() {

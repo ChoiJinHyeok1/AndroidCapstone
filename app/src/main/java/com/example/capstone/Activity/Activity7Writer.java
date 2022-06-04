@@ -63,7 +63,7 @@ public class Activity7Writer extends AppCompatActivity {
             user = FirebaseAuth.getInstance().getCurrentUser();
 
             Timestamp createdAt = Timestamp.now();
-            storeUpload(documentReference, new PostInfo(title, contents, user.getUid(), createdAt, 0, documentReference.getId()));
+            storeUpload(documentReference, new PostInfo(title, contents, user.getUid(), createdAt, 0, 0, documentReference.getId()));
 
         } else {
             startToast("회원정보를 입력해주세요.");

@@ -31,15 +31,15 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="14dp"
-                    android:paddingRight="14dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <ImageButton
                         android:id="@+id/ibtn_Back"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
                         app:srcCompat="?attr/homeAsUpIndicator" />
 
                     <TextView
@@ -48,6 +48,8 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="18dp"
                         android:paddingBottom="5dp"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
                         android:text="게시글 제목 영역 입니다."
                         android:textColor="@color/black"
                         android:textSize="25dp"
@@ -56,6 +58,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
                         android:paddingBottom="5dp">
 
                         <TextView
@@ -86,18 +90,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="7dp"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
                         android:paddingTop="7dp"
                         android:text="게시글 내용 영역 입니다.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세.\n\n동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세. 무궁화 삼천리 화려 강산 대한 사람, 대한으로 길이 보전하세."
                         android:textColor="@color/black"
                         android:textSize="18dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="4dp">
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/likeAnimButton"
@@ -106,6 +104,7 @@
                         app:lottie_autoPlay="false"
                         app:lottie_fileName="good.json"
                         app:lottie_loop="false" />
+
                 </LinearLayout>
 
                 <LinearLayout

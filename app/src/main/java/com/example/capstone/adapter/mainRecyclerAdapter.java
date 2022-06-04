@@ -78,6 +78,9 @@ public class mainRecyclerAdapter extends RecyclerView.Adapter<mainRecyclerAdapte
         TextView m_likecnt = cardView.findViewById(R.id.m_likecnt);
         m_likecnt.setText(String.valueOf(mDataset.get(position).getLikecnt()));
 
+        TextView m_commentcnt = cardView.findViewById(R.id.m_commentcnt);
+        m_commentcnt.setText(String.valueOf(mDataset.get(position).getCommentcnt()));
+
         TextView m_time = cardView.findViewById(R.id.m_time);
         Timestamp timestamp = (Timestamp) mDataset.get(position).getCreatedAt();
         String date = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(new java.util.Date(String.valueOf(timestamp.toDate())));

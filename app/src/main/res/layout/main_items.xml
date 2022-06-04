@@ -104,6 +104,7 @@
                                     android:src="@drawable/comment" />
 
                                 <TextView
+                                    android:id="@+id/m_commentcnt"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:paddingLeft="3dp"
