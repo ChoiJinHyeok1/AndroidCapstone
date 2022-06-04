@@ -68,10 +68,10 @@ public class commentRecyclerAdapter extends RecyclerView.Adapter<commentRecycler
         TextView c_contents = cardView.findViewById(R.id.c_contents);
         c_contents.setText(mDataset.get(position).getCcontents());
 
-//        TextView c_time = cardView.findViewById(R.id.c_time);
-//        Timestamp timestamp = (Timestamp) mDataset.get(position).getCcreatedAt();
-//        String date = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(new java.util.Date(String.valueOf(timestamp.toDate())));
-//        c_time.setText(date);
+        TextView c_time = cardView.findViewById(R.id.c_time);
+        Timestamp timestamp = (Timestamp) mDataset.get(position).getCcreatedAt();
+        String date = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm").format(new java.util.Date(String.valueOf(timestamp.toDate())));
+        c_time.setText(date);
 
     }
 

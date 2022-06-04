@@ -157,6 +157,7 @@
                     android:id="@+id/commentEditText"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
                     android:hint="댓글을 입력하세요."
                     android:paddingLeft="12dp"
                     android:textSize="15dp" />

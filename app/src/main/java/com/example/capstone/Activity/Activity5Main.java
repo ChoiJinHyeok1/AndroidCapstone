@@ -56,78 +56,44 @@ public class Activity5Main extends AppCompatActivity {
 
         EventChangeListener();
 
-
-        //복잡해서 새로만들었는데 나중에 필요할까봐 냅둬요!
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-//            db.collection("posts")
-//                    //시간순 출력
-//                    .orderBy("createdAt", Query.Direction.DESCENDING).get()
-//                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                if (task.isSuccessful()) {
-//                                    ArrayList<PostInfo> postList = new ArrayList<>();
-//                                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                                        Log.d(TAG, document.getId() + "=>" + document.getData());
-//                                        postList.add(new PostInfo(
-//                                                document.getData().get("title").toString(),
-//                                                document.getData().get("contents").toString(),
-//                                                "익명",
-//                                                document.getTimestamp("createdAt")
-//                                        ));
-//                                    }
-//                                    RecyclerView recyclerView = findViewById(R.id.mainRecyclerView);
-//                                    recyclerView.setHasFixedSize(true);
-//                                    recyclerView.setLayoutManager(new LinearLayoutManager(Activity5Main.this));
-//                                    RecyclerView.Adapter mAdapter = new mainRecyclerAdapter(Activity5Main.this, postList);
-//                                    recyclerView.setAdapter(mAdapter);
-//
-//                                } else {
-//                                    Log.d(TAG, "Error", task.getException());
-//                                }
-//
-//                        }
-//                    });
-
-            TextView tvNotice = (TextView) findViewById(R.id.tv_Notice);
-            ImageButton ibtnSearch = (ImageButton) findViewById(R.id.ibtn_Search);
-            ImageButton ibtnRanChat = (ImageButton) findViewById(R.id.ibtn_RanChat);
-            ImageButton ibtnWrite = (ImageButton) findViewById(R.id.ibtn_Write);
-            TextView tvTitle = (TextView) findViewById(R.id.tv_Title);
+        TextView tvNotice = (TextView) findViewById(R.id.tv_Notice);
+        ImageButton ibtnSearch = (ImageButton) findViewById(R.id.ibtn_Search);
+        ImageButton ibtnRanChat = (ImageButton) findViewById(R.id.ibtn_RanChat);
+        ImageButton ibtnWrite = (ImageButton) findViewById(R.id.ibtn_Write);
+        TextView tvTitle = (TextView) findViewById(R.id.tv_Title);
 
 
-            //공지사항
-            tvNotice.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent mIntent = new Intent(Activity5Main.this, Activity11Notice.class);
-                    startActivity(mIntent);
-                }
-            });
-            ibtnSearch.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent mIntent = new Intent(Activity5Main.this, Activity12Search.class);
-                    startActivity(mIntent);
-                }
-            });
-            ibtnRanChat.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent mIntent = new Intent(Activity5Main.this, Activity8Individchat.class);
-                    startActivity(mIntent);
-                }
-            });
-            ibtnWrite.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent mIntent = new Intent(Activity5Main.this, Activity7Writer.class);
-                    startActivity(mIntent);
-                }
-            });
+        //공지사항
+        tvNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(Activity5Main.this, Activity11Notice.class);
+                startActivity(mIntent);
+            }
+        });
+        ibtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(Activity5Main.this, Activity12Search.class);
+                startActivity(mIntent);
+            }
+        });
+        ibtnRanChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Activity5Main.this, Activity8Individchat.class);
+                startActivity(mIntent);
+            }
+        });
+        ibtnWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Activity5Main.this, Activity7Writer.class);
+                startActivity(mIntent);
+            }
+        });
 
-        }
+    }
 
     private void EventChangeListener() {
         db.collection("posts").orderBy("createdAt", Query.Direction.DESCENDING)

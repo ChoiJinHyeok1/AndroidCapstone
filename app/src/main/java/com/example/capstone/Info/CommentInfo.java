@@ -9,11 +9,11 @@ public class CommentInfo {
     private Timestamp ccreatedAt;
     private Integer clikecnt;
 
-    public CommentInfo(String cpublisher, String ccontents) {
-        this.cpublisher = cpublisher;
-        this.ccontents = ccontents;
-    }
 
+    public CommentInfo(String ccontents, Timestamp ccreatedAt) {
+        this.ccontents = ccontents;
+        this.ccreatedAt = ccreatedAt;
+    }
 
     public CommentInfo(String cpublisher, String ccontents, Timestamp ccreatedAt, Integer clikecnt) {
         this.cpublisher = cpublisher;
