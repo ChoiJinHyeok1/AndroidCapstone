@@ -1,28 +1,40 @@
 package com.example.capstone.Activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.capstone.Info.Post
+import com.example.capstone.Info.PostInfo
 import com.example.capstone.R
+import com.example.capstone.adapter.mainRecyclerAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity12_search.*
 import kotlinx.android.synthetic.main.item.view.*
 
 class Activity12Search : AppCompatActivity() {
-    var firestore : FirebaseFirestore? = null
+
+
+    var recyclerView: RecyclerView? = null
+    var postList: java.util.ArrayList<PostInfo>? = null
+    var mainRecyclerAdapter: mainRecyclerAdapter? = null
+    var db: FirebaseFirestore? = null
+    var progressDialog: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity12_search)
 
+
+
         // 파이어스토어 인스턴스 초기화
-        firestore = FirebaseFirestore.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         recyclerview.adapter = RecyclerViewAdapter()
         recyclerview.layoutManager = LinearLayoutManager(this)
@@ -53,18 +65,25 @@ class Activity12Search : AppCompatActivity() {
         }
     }
 
+
+
     inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         // Person 클래스 ArrayList 생성성
-        var posts : ArrayList<Post> = arrayListOf()
+
+
+        val mDataset : ArrayList<Post> = arrayListOf()
+        val activity: Activity? = null
+
+
 
         init {  // telephoneBook의 문서를 불러온 뒤 Person으로 변환해 ArrayList에 담음
-            firestore?.collection("telephoneBook")?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+            db?.collection("posts")?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 // ArrayList 비워줌
-                posts.clear()
+                mDataset.clear()
 
                 for (snapshot in querySnapshot!!.documents) {
                     var item = snapshot.toObject(Post::class.java)
-                    posts.add(item!!)
+                    mDataset.add(item!!)
                 }
                 notifyDataSetChanged()
             }
@@ -83,29 +102,31 @@ class Activity12Search : AppCompatActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             var viewHolder = (holder as ViewHolder).itemView
 
-            viewHolder.title.text = posts[position].title
-            viewHolder.contents.text = posts[position].contents
+            viewHolder.m_title.text = mDataset[position].title
+            viewHolder.m_content.text = mDataset[position].contents
+            viewHolder.m_likecnt.text = mDataset[position].likecnt.toString()
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환
         override fun getItemCount(): Int {
-            return posts.size
+            return mDataset.size
         }
 
         // 파이어스토어에서 데이터를 불러와서 검색어가 있는지 판단
         fun search(searchWord : String, option : String) {
-            firestore?.collection("posts")?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+            db?.collection("posts")?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 // ArrayList 비워줌
-                posts.clear()
+                mDataset.clear()
 
                 for (snapshot in querySnapshot!!.documents) {
                     if (snapshot.getString(option)!!.contains(searchWord)) {
                         var item = snapshot.toObject(Post::class.java)
-                        posts.add(item!!)
+                        mDataset.add(item!!)
                     }
                 }
                 notifyDataSetChanged()
             }
         }
+
     }
 }
