@@ -2,6 +2,7 @@ package com.example.capstone.Activity
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,14 +68,11 @@ class Activity12Search : AppCompatActivity() {
 
 
 
-    inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        // Person 클래스 ArrayList 생성성
-
-
-        val mDataset : ArrayList<Post> = arrayListOf()
+    inner class RecyclerViewAdapter(
+        val mDataset : ArrayList<Post> = arrayListOf(),
         val activity: Activity? = null
-
-
+    ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        // Person 클래스 ArrayList 생성성
 
         init {  // telephoneBook의 문서를 불러온 뒤 Person으로 변환해 ArrayList에 담음
             db?.collection("posts")?.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
@@ -91,7 +89,26 @@ class Activity12Search : AppCompatActivity() {
 
         // xml파일을 inflate하여 ViewHolder를 생성
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
             var view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
+
+            val myViewHolder = ViewHolder(view)
+
+            view.setOnClickListener{
+                var mPosition = myViewHolder.adapterPosition
+                val intent = Intent(this@Activity12Search, Activity6Reader::class.java)
+                    .apply {
+                        intent.putExtra("title", mDataset[mPosition].title)
+                        intent.putExtra("contents", mDataset[mPosition].contents)
+                        intent.putExtra("likecnt", mDataset[mPosition].likecnt.toString())
+                        intent.putExtra("postId", mDataset[mPosition].postId)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                     }.run { startActivity(intent) }
+//
+
+
+            }
+
             return ViewHolder(view)
         }
 
@@ -105,6 +122,7 @@ class Activity12Search : AppCompatActivity() {
             viewHolder.m_title.text = mDataset[position].title
             viewHolder.m_content.text = mDataset[position].contents
             viewHolder.m_likecnt.text = mDataset[position].likecnt.toString()
+
         }
 
         // 리사이클러뷰의 아이템 총 개수 반환

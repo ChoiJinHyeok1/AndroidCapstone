@@ -6,5 +6,7 @@ data class Post(var title : String? = null,
                 var contents : String? = null,
                 var publisher : String? = null,
                 var likecnt : Integer? = null,
-                var postId : String? = null
+                var postId : String? = null,
+//                var createAt : String? = null,
+//                var commentcnt : String? = null
 )
