@@ -133,6 +133,7 @@ public class Activity6Reader extends AppCompatActivity {
                 storeUpload(commentReference, new CommentInfo(user.getUid(), ccontents, ccreatedAt, 0));
                 getComment();
                 updatecommentcnt();
+                commentEditText.setText(null);
             }
         });
 
