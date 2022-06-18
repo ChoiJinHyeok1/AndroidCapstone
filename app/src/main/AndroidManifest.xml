@@ -17,9 +17,6 @@
             android:name=".Activity.Activity12Search"
             android:exported="true" />
         <activity
-            android:name=".ChatWait"
-            android:exported="false" />
-        <activity
             android:name=".ChatActivity"
             android:exported="true" />
         <activity

@@ -29,9 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Activity8Individchat extends AppCompatActivity {
-    private String myUid, chatRooms;
+    private String myUid;
     private ArrayList<item3> iList3;
-    Button btnOut, btnSend;
+    Button btnSend;
     EditText edtChat;
     FirebaseDatabase fireDB;
     DatabaseReference chatRef;
@@ -46,14 +46,13 @@ public class Activity8Individchat extends AppCompatActivity {
         this.initializeData();
 
         Intent intent = new Intent();
-        chatRooms = intent.getStringExtra("chatRoom");
 
         RecyclerView recyclerView = findViewById(R.id.ichatrecyclerView);
         btnSend = findViewById(R.id.btn_Send);
-        btnOut = findViewById(R.id.btn_Out);
         edtChat = findViewById(R.id.edt_Chat);
 
-        chatRef = fireDB.getReference().child("chatrooms").child(chatRooms);
+        fireDB = FirebaseDatabase.getInstance();
+        chatRef = fireDB.getReference();
 
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -113,20 +112,10 @@ public class Activity8Individchat extends AppCompatActivity {
                 clickSend(view);
             }
         });
-
-        btnOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fireDB.getInstance().getReference().child("chatrooms").child(chatRooms).removeValue();
-                Intent mIntent = new Intent(Activity8Individchat.this, Activity5Main.class);
-                startActivity(mIntent);
-            }
-        });
     }
 
     public void clickSend(View view) {
         String msg = edtChat.getText().toString();
-
 
         MessageItem msgItem = new MessageItem(msg, FirebaseAuth.getInstance().getCurrentUser().getUid());
         chatRef.push().setValue(msgItem);
@@ -143,5 +132,7 @@ public class Activity8Individchat extends AppCompatActivity {
         iList3 = new ArrayList<>();
 
         iList3.add(new item3("매칭에 성공하였습니다.", code.item3.CENTER_CONTENT));
+        iList3.add(new item3("익명1님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
+        iList3.add(new item3("익명2님이 입장하셨습니다.", code.item3.CENTER_CONTENT));
     }
 }
