@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class Activity8Individchat extends AppCompatActivity {
     private String myUid;
     private ArrayList<item3> iList3;
-    Button btnSend;
+    Button btnSend, btnOut;
     EditText edtChat;
     FirebaseDatabase fireDB;
     DatabaseReference chatRef;
@@ -49,6 +49,7 @@ public class Activity8Individchat extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.ichatrecyclerView);
         btnSend = findViewById(R.id.btn_Send);
+        btnOut = findViewById(R.id.btn_Out);
         edtChat = findViewById(R.id.edt_Chat);
 
         fireDB = FirebaseDatabase.getInstance();
@@ -110,6 +111,14 @@ public class Activity8Individchat extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickSend(view);
+            }
+        });
+
+        btnOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(Activity8Individchat.this, Activity5Main.class);
+                startActivity(mIntent);
             }
         });
     }
