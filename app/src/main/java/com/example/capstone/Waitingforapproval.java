@@ -12,17 +12,15 @@ import android.widget.ImageView;
 import com.example.capstone.Activity.Activity5Main;
 
 public class Waitingforapproval extends AppCompatActivity {
-    ImageView imgvTitle1, imgvTitle2;
+    ImageView imgvTitle1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.waitingforapproval);
-        imgvTitle1 = findViewById(R.id.imgvActWTitle1);
-        imgvTitle2 = findViewById(R.id.imgvActWTitle2);
+        imgvTitle1 = findViewById(R.id.imageView2);
         final Animation animation = AnimationUtils.loadAnimation(this,
                 R.anim.animationfortext2);
         imgvTitle1.startAnimation(animation);
-        imgvTitle2.startAnimation(animation);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
